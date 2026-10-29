@@ -36,8 +36,8 @@ def get_data(url):
 
 
 def get_player_statistics(summary):
-    players_data = []
 
+    players_data = []
     boxscore = summary.get("boxscore", {})
 
     for team_group in boxscore.get("players", []):
@@ -47,19 +47,20 @@ def get_player_statistics(summary):
         for stat_group in team_group.get("statistics", []):
 
             labels = stat_group.get("labels", [])
-            names = stat_group.get("names", labels)
+            names = stat_group.get("names", [])
 
             for player in stat_group.get("athletes", []):
 
                 athlete = player.get("athlete", {})
-
                 raw_stats = player.get("stats", [])
 
                 statistics = {}
 
                 for index, value in enumerate(raw_stats):
+
                     if index < len(labels):
                         statistics[labels[index]] = value
+
                     elif index < len(names):
                         statistics[names[index]] = value
 
@@ -67,7 +68,9 @@ def get_player_statistics(summary):
                     "team": team_name,
                     "player": athlete.get("displayName"),
                     "player_id": athlete.get("id"),
-                    "position": athlete.get("position", {}).get("abbreviation"),
+                    "position": athlete.get(
+                        "position", {}
+                    ).get("abbreviation"),
                     "statistics": statistics
                 })
 
@@ -94,16 +97,20 @@ def collect_sport(sport, config):
         for competitor in competition.get("competitors", []):
 
             teams.append({
-                "team": competitor.get("team", {}).get("displayName"),
+                "team": competitor.get(
+                    "team", {}
+                ).get("displayName"),
                 "score": competitor.get("score"),
                 "winner": competitor.get("winner", False),
                 "home_away": competitor.get("homeAway"),
                 "record": competitor.get("records", [])
             })
 
+        game_id = event.get("id")
+
         game = {
             "sport": sport,
-            "game_id": event.get("id"),
+            "game_id": game_id,
             "game": event.get("name"),
             "date": event.get("date"),
             "status": event.get("status", {}).get(
@@ -112,9 +119,6 @@ def collect_sport(sport, config):
             "teams": teams,
             "players": []
         }
-
-        # Retrieve individual player statistics
-        game_id = event.get("id")
 
         if game_id:
 
@@ -145,30 +149,67 @@ def main():
         "sports": {}
     }
 
+    # Load historical records
+    try:
+        with open("sports_history.json", "r") as file:
+            history = json.load(file)
+
+    except (FileNotFoundError, json.JSONDecodeError):
+        history = {"games": {}}
+
+    # Make sure historical database exists
+    history.setdefault("games", {})
+
+    # Collect each league
     for sport, config in SPORTS.items():
 
-        results["sports"][sport] = collect_sport(
-            sport, config
-        )
+        games = collect_sport(sport, config)
+        results["sports"][sport] = games
 
+        for game in games:
+
+            game_id = game.get("game_id")
+
+            if not game_id:
+                continue
+
+            key = f"{sport}_{game_id}"
+
+            previous = history["games"].get(key, {})
+
+            # Preserve existing player data when
+            # a newer response does not include it
+            if not game.get("players") and previous.get("players"):
+                game["players"] = previous["players"]
+
+            history["games"][key] = game
+
+    # Update timestamps
+    history["last_updated"] = datetime.now(
+        timezone.utc
+    ).isoformat()
+
+    # Save latest data
     with open("sports_data.json", "w") as file:
-
         json.dump(results, file, indent=4)
 
-    total_games = sum(
-        len(games) for games in results["sports"].values()
-    )
+    # Save historical data
+    with open("sports_history.json", "w") as file:
+        json.dump(history, file, indent=4)
+
+    # Calculate totals
+    total_games = len(history["games"])
 
     total_players = sum(
-        len(game["players"])
-        for games in results["sports"].values()
-        for game in games
+        len(game.get("players", []))
+        for game in history["games"].values()
     )
 
     print("\n========== COLLECTION COMPLETE ==========")
-    print(f"Total games: {total_games}")
-    print(f"Total player records: {total_players}")
-    print("Saved to sports_data.json")
+    print(f"Historical games: {total_games}")
+    print(f"Historical player records: {total_players}")
+    print("Saved sports_data.json")
+    print("Saved sports_history.json")
 
 
 if __name__ == "__main__":
