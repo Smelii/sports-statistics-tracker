@@ -10,14 +10,17 @@ SPORTS = {
     "NBA": {
         "url": "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard",
         "summary": "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/summary",
+        "standings": "https://site.api.espn.com/apis/v2/sports/basketball/nba/standings",
     },
     "NFL": {
         "url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard",
         "summary": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary",
+        "standings": "https://site.api.espn.com/apis/v2/sports/football/nfl/standings",
     },
     "NHL": {
         "url": "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/scoreboard",
         "summary": "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/summary",
+        "standings": "https://site.api.espn.com/apis/v2/sports/hockey/nhl/standings",
     },
 }
 
@@ -71,6 +74,119 @@ def get_player_statistics(summary):
         player for player in players_data
         if player.get("player") or player.get("player_id")
     ]
+
+
+def clean_standing_stat(stat):
+    """Keep ESPN's readable stat value, falling back to its numeric value."""
+    if stat.get("displayValue") not in (None, ""):
+        return stat.get("displayValue")
+    if stat.get("value") is not None:
+        return stat.get("value")
+    return None
+
+
+def collect_standings(sport, url):
+    """
+    Fetch and normalize ESPN standings.
+    Groups may represent conferences or divisions, depending on the league.
+    """
+    print(f"Collecting {sport} standings...")
+    data = get_data(url)
+
+    if not data:
+        return None
+
+    groups = []
+
+    def walk_group(group):
+        group_name = (
+            group.get("name")
+            or group.get("shortName")
+            or group.get("abbreviation")
+            or "League"
+        )
+
+        children = group.get("children") or []
+        if children:
+            for child in children:
+                walk_group(child)
+            return
+
+        standings = group.get("standings") or {}
+        entries = standings.get("entries") or []
+
+        if not entries:
+            return
+
+        teams = []
+
+        for entry in entries:
+            team_info = entry.get("team") or {}
+            stats_list = entry.get("stats") or []
+            stats = {}
+
+            for stat in stats_list:
+                name = stat.get("name") or stat.get("abbreviation")
+                value = clean_standing_stat(stat)
+                if name and value is not None:
+                    stats[name] = value
+
+            teams.append({
+                "team": team_info.get("displayName")
+                    or team_info.get("name")
+                    or "Unknown team",
+                "abbreviation": team_info.get("abbreviation"),
+                "team_id": team_info.get("id"),
+                "stats": stats,
+            })
+
+        def sort_value(team, key):
+            try:
+                return float(team["stats"].get(key, 0))
+            except (TypeError, ValueError):
+                return 0.0
+
+        # Rank teams within the ESPN group using winning percentage,
+        # then wins, then points as tie-breakers when available.
+        teams.sort(
+            key=lambda team: (
+                sort_value(team, "winPercent"),
+                sort_value(team, "wins"),
+                sort_value(team, "points"),
+            ),
+            reverse=True,
+        )
+
+        for index, team in enumerate(teams, start=1):
+            team["rank"] = index
+
+        groups.append({
+            "name": group_name,
+            "teams": teams,
+        })
+
+    for group in data.get("children") or []:
+        walk_group(group)
+
+    # Some ESPN responses place standings at the top level.
+    if not groups and (data.get("standings") or {}).get("entries"):
+        walk_group({
+            "name": data.get("name") or "League",
+            "standings": data.get("standings"),
+        })
+
+    if not groups:
+        print(f"No standings groups found for {sport}.")
+        return None
+
+    team_count = sum(len(group["teams"]) for group in groups)
+    print(f"{sport}: collected standings for {team_count} teams.")
+
+    return {
+        "sport": sport,
+        "groups": groups,
+        "last_updated": datetime.now(timezone.utc).isoformat(),
+    }
 
 
 def collect_sport(sport, config):
@@ -139,6 +255,15 @@ def load_history():
     return history
 
 
+def load_previous_data():
+    try:
+        with open("sports_data.json", "r", encoding="utf-8") as file:
+            data = json.load(file)
+        return data if isinstance(data, dict) else {}
+    except (FileNotFoundError, json.JSONDecodeError, OSError):
+        return {}
+
+
 def save_json_atomic(filename, data):
     """Write JSON safely so an interrupted run does not leave a partial file."""
     directory = os.path.dirname(os.path.abspath(filename))
@@ -162,40 +287,59 @@ def save_json_atomic(filename, data):
 
 def main():
     collected_at = datetime.now(timezone.utc).isoformat()
-    results = {"last_updated": collected_at, "sports": {}}
+    previous_data = load_previous_data()
+
+    results = {
+        "last_updated": collected_at,
+        "sports": {},
+        "standings": previous_data.get("standings") or {},
+    }
+
     history = load_history()
     successful_leagues = 0
+    successful_standings = 0
 
     for sport, config in SPORTS.items():
         games = collect_sport(sport, config)
 
         # Do not erase a league's current data if its scoreboard request fails.
         if games is None:
-            results["sports"][sport] = []
-            print(f"Keeping existing historical {sport} data after request failure.")
-            continue
+            results["sports"][sport] = (
+                previous_data.get("sports", {}).get(sport, [])
+            )
+            print(f"Keeping existing {sport} data after request failure.")
+        else:
+            successful_leagues += 1
+            results["sports"][sport] = games
 
-        successful_leagues += 1
-        results["sports"][sport] = games
+            for game in games:
+                game_id = game.get("game_id")
+                if not game_id:
+                    continue
 
-        for game in games:
-            game_id = game.get("game_id")
-            if not game_id:
-                continue
+                key = f"{sport}_{game_id}"
+                previous = history["games"].get(key) or {}
 
-            key = f"{sport}_{game_id}"
-            previous = history["games"].get(key) or {}
+                # Preserve player/team details if ESPN temporarily omits them.
+                if not game.get("players") and previous.get("players"):
+                    game["players"] = previous["players"]
+                if not game.get("teams") and previous.get("teams"):
+                    game["teams"] = previous["teams"]
 
-            # Preserve player/team details if ESPN temporarily omits them.
-            if not game.get("players") and previous.get("players"):
-                game["players"] = previous["players"]
-            if not game.get("teams") and previous.get("teams"):
-                game["teams"] = previous["teams"]
+                history["games"][key] = game
 
-            history["games"][key] = game
+        # Collect standings separately from the historical game records.
+        standings = collect_standings(sport, config["standings"])
+        if standings is not None:
+            results["standings"][sport] = standings
+            successful_standings += 1
+        else:
+            print(f"Keeping previously saved {sport} standings if available.")
 
-    if successful_leagues == 0:
-        raise RuntimeError("All scoreboard requests failed; no files were changed.")
+    if successful_leagues == 0 and successful_standings == 0:
+        raise RuntimeError(
+            "All ESPN requests failed; no files were changed."
+        )
 
     history["last_updated"] = collected_at
     save_json_atomic("sports_data.json", results)
@@ -208,7 +352,8 @@ def main():
     )
 
     print("\n========== COLLECTION COMPLETE ==========")
-    print(f"Successful leagues: {successful_leagues}/{len(SPORTS)}")
+    print(f"Successful scoreboard feeds: {successful_leagues}/{len(SPORTS)}")
+    print(f"Successful standings feeds: {successful_standings}/{len(SPORTS)}")
     print(f"Historical games: {total_games}")
     print(f"Historical player records: {total_player_rows}")
     print("Saved sports_data.json")
