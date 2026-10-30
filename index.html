@@ -50,6 +50,7 @@ button, input {
 }
 button { cursor: pointer; }
 button.active { background: #2563eb; border-color: #2563eb; }
+button:disabled { opacity: 0.6; cursor: wait; }
 input { flex: 1; min-width: 200px; }
 .game { margin-bottom: 14px; }
 .game-top {
@@ -84,6 +85,8 @@ footer { padding: 30px; text-align: center; color: #94a3b8; }
     <h1>Sports Statistics Tracker</h1>
     <div class="muted">NBA · NFL · NHL | Scores, players and historical data</div>
     <p id="updated" class="muted">Loading statistics...</p>
+    <p id="refreshStatus" class="muted">Checking for updates...</p>
+    <button id="refreshButton" onclick="loadData()">↻ Refresh Statistics</button>
   </div>
 </header>
 
@@ -108,11 +111,14 @@ footer { padding: 30px; text-align: center; color: #94a3b8; }
   <div id="games"></div>
 </main>
 
-<footer>Sports Statistics Tracker · Updated automatically by GitHub Actions</footer>
+<footer>
+  Sports Statistics Tracker · Automatically checks for new data every 5 minutes
+</footer>
 
 <script>
 let allGames = [];
 let selectedSport = "ALL";
+let isLoading = false;
 
 function escapeHTML(value) {
   return String(value ?? "").replace(/[&<>"']/g, char => ({
@@ -127,13 +133,33 @@ function displayDate(value) {
   return isNaN(date) ? escapeHTML(value) : date.toLocaleString();
 }
 
+function normalizeGames(data) {
+  if (Array.isArray(data)) return data;
+  if (!data || typeof data !== "object") return [];
+
+  if (data.games && typeof data.games === "object") {
+    return Array.isArray(data.games)
+      ? data.games
+      : Object.values(data.games);
+  }
+
+  return Object.entries(data)
+    .filter(([key, value]) =>
+      key !== "last_updated" &&
+      key !== "updated_at" &&
+      value && typeof value === "object" &&
+      !Array.isArray(value)
+    )
+    .map(([, value]) => value)
+    .filter(game => game.sport);
+}
+
 function renderGames() {
   const search = document.getElementById("search").value.toLowerCase();
 
   const filtered = allGames.filter(game => {
     const sportMatch = selectedSport === "ALL" || game.sport === selectedSport;
-    const searchable = JSON.stringify(game).toLowerCase();
-    return sportMatch && searchable.includes(search);
+    return sportMatch && JSON.stringify(game).toLowerCase().includes(search);
   });
 
   document.getElementById("message").textContent =
@@ -163,10 +189,11 @@ function renderGames() {
         ${players.map(player => {
           const stats = player.statistics || {};
           const statText = Object.entries(stats)
-            .map(([key, value]) => `${escapeHTML(key)}: ${escapeHTML(
-              typeof value === "object" ? JSON.stringify(value) : value
-            )}`)
-            .join(" · ");
+            .map(([key, value]) =>
+              `${escapeHTML(key)}: ${escapeHTML(
+                typeof value === "object" ? JSON.stringify(value) : value
+              )}`
+            ).join(" · ");
 
           return `<div class="player">
             <strong>${escapeHTML(player.player)}</strong>
@@ -192,24 +219,38 @@ function renderGames() {
   }).join("");
 }
 
-async function loadData() {
-  try {
-    let games = [];
-    let updated = "";
+async function fetchJSON(filename) {
+  const response = await fetch(
+    `${filename}?refresh=${Date.now()}`,
+    { cache: "no-store" }
+  );
+  if (!response.ok) throw new Error(`Could not load ${filename}`);
+  return response.json();
+}
 
-    const historyResponse = await fetch("sports_history.json");
-    if (historyResponse.ok) {
-      const history = await historyResponse.json();
-      games = Object.values(history.games || {});
-      updated = history.last_updated || "";
+async function loadData() {
+  if (isLoading) return;
+  isLoading = true;
+
+  const button = document.getElementById("refreshButton");
+  button.disabled = true;
+  button.textContent = "Refreshing...";
+
+  try {
+    let history;
+    let games = [];
+
+    try {
+      history = await fetchJSON("sports_history.json");
+      games = normalizeGames(history);
+    } catch (error) {
+      console.log("History file not available; trying latest data.");
     }
 
     if (!games.length) {
-      const latestResponse = await fetch("sports_data.json");
-      if (!latestResponse.ok) throw new Error("Could not load sports data.");
-      const latest = await latestResponse.json();
-      updated = latest.last_updated || "";
+      const latest = await fetchJSON("sports_data.json");
       games = Object.values(latest.sports || {}).flat();
+      history = latest;
     }
 
     allGames = games.sort((a, b) =>
@@ -224,13 +265,26 @@ async function loadData() {
     document.getElementById("nhlGames").textContent =
       allGames.filter(g => g.sport === "NHL").length;
 
+    const updated = history?.last_updated || history?.updated_at || "";
+
     document.getElementById("updated").textContent =
-      updated ? `Last updated: ${displayDate(updated)}` : "Statistics loaded";
+      updated ? `Sports data last updated: ${displayDate(updated)}` :
+      "Sports data loaded";
+
+    document.getElementById("refreshStatus").textContent =
+      `Website checked for updates: ${new Date().toLocaleTimeString()}`;
 
     renderGames();
+
   } catch (error) {
+    document.getElementById("refreshStatus").textContent =
+      "Could not refresh data. Please try again.";
     document.getElementById("message").innerHTML =
-      `<span class="error">${escapeHTML(error.message)} Check that the JSON files exist and are accessible.</span>`;
+      `<span class="error">${escapeHTML(error.message)}</span>`;
+  } finally {
+    isLoading = false;
+    button.disabled = false;
+    button.textContent = "↻ Refresh Statistics";
   }
 }
 
@@ -247,6 +301,9 @@ document.querySelectorAll("button[data-sport]").forEach(button => {
 document.getElementById("search").addEventListener("input", renderGames);
 
 loadData();
+
+// Automatically check for new data every five minutes.
+setInterval(loadData, 5 * 60 * 1000);
 </script>
 </body>
 </html>
