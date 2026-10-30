@@ -7,40 +7,58 @@
 <title>Sports Statistics Tracker</title>
 <style>
 * { box-sizing: border-box; }
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
   background: #101827;
   color: #f8fafc;
 }
+
 header {
   padding: 32px 20px;
   background: #172338;
   border-bottom: 1px solid #334155;
 }
-.container { max-width: 1100px; margin: auto; padding: 20px; }
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 20px;
+}
+
 h1 { margin: 0 0 8px; font-size: 30px; }
+h2 { margin-top: 32px; }
 .muted { color: #94a3b8; }
+
 .stats {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 14px;
   margin: 22px 0;
 }
-.stat, .game {
+
+.stat, .game, .leaderboard-card {
   background: #1e293b;
   border: 1px solid #334155;
   border-radius: 12px;
   padding: 18px;
 }
-.stat strong { display: block; font-size: 27px; margin-top: 8px; }
+
+.stat strong {
+  display: block;
+  font-size: 27px;
+  margin-top: 8px;
+}
+
 .controls {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
   margin: 20px 0;
 }
-button, input {
+
+button, input, select {
   padding: 12px 15px;
   border-radius: 8px;
   border: 1px solid #475569;
@@ -48,11 +66,16 @@ button, input {
   color: white;
   font-size: 15px;
 }
+
 button { cursor: pointer; }
 button.active { background: #2563eb; border-color: #2563eb; }
 button:disabled { opacity: 0.6; cursor: wait; }
+
 input { flex: 1; min-width: 200px; }
+select { min-width: 160px; }
+
 .game { margin-bottom: 14px; }
+
 .game-top {
   display: flex;
   justify-content: space-between;
@@ -60,24 +83,77 @@ input { flex: 1; min-width: 200px; }
   flex-wrap: wrap;
   margin-bottom: 14px;
 }
+
 .team {
   display: flex;
   justify-content: space-between;
   padding: 10px 0;
   border-bottom: 1px solid #334155;
 }
-.winner { color: #4ade80; font-weight: bold; }
+
+.winner {
+  color: #4ade80;
+  font-weight: bold;
+}
+
 .players { margin-top: 16px; }
 .players summary { cursor: pointer; color: #93c5fd; }
+
 .player {
   padding: 10px 0;
   border-bottom: 1px solid #334155;
   font-size: 14px;
 }
+
+.leaderboard-card { margin-bottom: 12px; }
+
+.leader-row {
+  display: grid;
+  grid-template-columns: 42px 1fr auto;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 0;
+  border-bottom: 1px solid #334155;
+}
+
+.leader-row:last-child { border-bottom: none; }
+
+.rank {
+  font-size: 20px;
+  font-weight: bold;
+  color: #93c5fd;
+}
+
+.leader-name { font-weight: bold; }
+
+.leader-value {
+  font-size: 19px;
+  font-weight: bold;
+  color: #4ade80;
+  text-align: right;
+}
+
 .error { color: #fca5a5; }
-footer { padding: 30px; text-align: center; color: #94a3b8; }
+
+footer {
+  padding: 30px;
+  text-align: center;
+  color: #94a3b8;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid #334155;
+  margin: 32px 0;
+}
+
+@media(max-width: 500px) {
+  .leader-row { grid-template-columns: 30px 1fr auto; gap: 8px; }
+  h1 { font-size: 25px; }
+}
 </style>
 </head>
+
 <body>
 
 <header>
@@ -91,12 +167,39 @@ footer { padding: 30px; text-align: center; color: #94a3b8; }
 </header>
 
 <main class="container">
+
   <section class="stats">
     <div class="stat">Total Games<strong id="totalGames">0</strong></div>
     <div class="stat">NBA Games<strong id="nbaGames">0</strong></div>
     <div class="stat">NFL Games<strong id="nflGames">0</strong></div>
     <div class="stat">NHL Games<strong id="nhlGames">0</strong></div>
   </section>
+
+  <h2>Player Leaderboards</h2>
+  <p class="muted">
+    Rankings are calculated from player statistics collected in your historical game data.
+  </p>
+
+  <div class="controls">
+    <select id="leaderboardSport">
+      <option value="ALL">All Sports</option>
+      <option value="NBA">NBA</option>
+      <option value="NFL">NFL</option>
+      <option value="NHL">NHL</option>
+    </select>
+
+    <select id="leaderboardStat">
+      <option value="">Select a statistic</option>
+    </select>
+  </div>
+
+  <div id="leaderboard">
+    <p class="muted">Loading player rankings...</p>
+  </div>
+
+  <hr>
+
+  <h2>Game History</h2>
 
   <div class="controls">
     <button class="active" data-sport="ALL">All Sports</button>
@@ -106,9 +209,9 @@ footer { padding: 30px; text-align: center; color: #94a3b8; }
     <input id="search" placeholder="Search teams or players...">
   </div>
 
-  <h2>Game History</h2>
   <p id="message" class="muted">Loading games...</p>
   <div id="games"></div>
+
 </main>
 
 <footer>
@@ -122,8 +225,11 @@ let isLoading = false;
 
 function escapeHTML(value) {
   return String(value ?? "").replace(/[&<>"']/g, char => ({
-    "&": "&amp;", "<": "&lt;", ">": "&gt;",
-    '"': "&quot;", "'": "&#39;"
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;"
   })[char]);
 }
 
@@ -135,6 +241,7 @@ function displayDate(value) {
 
 function normalizeGames(data) {
   if (Array.isArray(data)) return data;
+
   if (!data || typeof data !== "object") return [];
 
   if (data.games && typeof data.games === "object") {
@@ -147,23 +254,159 @@ function normalizeGames(data) {
     .filter(([key, value]) =>
       key !== "last_updated" &&
       key !== "updated_at" &&
-      value && typeof value === "object" &&
+      value &&
+      typeof value === "object" &&
       !Array.isArray(value)
     )
     .map(([, value]) => value)
     .filter(game => game.sport);
 }
 
+function getPlayerStats(player) {
+  return player.statistics &&
+    typeof player.statistics === "object"
+    ? player.statistics
+    : {};
+}
+
+function getNumericValue(value) {
+  if (typeof value === "number" && Number.isFinite(value)) {
+    return value;
+  }
+
+  if (typeof value === "string") {
+    const cleaned = value.trim();
+
+    if (!cleaned || !/^-?\d+(\.\d+)?$/.test(cleaned)) {
+      return null;
+    }
+
+    const number = Number(cleaned);
+    return Number.isFinite(number) ? number : null;
+  }
+
+  return null;
+}
+
+function renderLeaderboard() {
+  const sport = document.getElementById("leaderboardSport").value;
+  const statSelect = document.getElementById("leaderboardStat");
+  const leaderboard = document.getElementById("leaderboard");
+
+  const sportGames = allGames.filter(game =>
+    sport === "ALL" || game.sport === sport
+  );
+
+  const availableStats = new Set();
+
+  sportGames.forEach(game => {
+    (game.players || []).forEach(player => {
+      Object.entries(getPlayerStats(player)).forEach(([key, value]) => {
+        if (getNumericValue(value) !== null) {
+          availableStats.add(key);
+        }
+      });
+    });
+  });
+
+  const previousStat = statSelect.value;
+
+  statSelect.innerHTML = '<option value="">Select a statistic</option>';
+
+  [...availableStats].sort().forEach(stat => {
+    const option = document.createElement("option");
+    option.value = stat;
+    option.textContent = stat;
+    statSelect.appendChild(option);
+  });
+
+  if (availableStats.has(previousStat)) {
+    statSelect.value = previousStat;
+  }
+
+  const selectedStat = statSelect.value;
+
+  if (!selectedStat) {
+    leaderboard.innerHTML =
+      '<p class="muted">No numeric player statistics are available yet for this selection.</p>';
+    return;
+  }
+
+  const rankings = new Map();
+
+  sportGames.forEach(game => {
+    (game.players || []).forEach(player => {
+      const playerName = player.player || "Unknown Player";
+      const team = player.team || "";
+      const value = getNumericValue(getPlayerStats(player)[selectedStat]);
+
+      if (value === null) return;
+
+      const key = `${game.sport}|${playerName.toLowerCase()}|${team.toLowerCase()}`;
+
+      if (!rankings.has(key)) {
+        rankings.set(key, {
+          name: playerName,
+          team: team,
+          sport: game.sport,
+          total: 0,
+          appearances: 0
+        });
+      }
+
+      const entry = rankings.get(key);
+      entry.total += value;
+      entry.appearances += 1;
+    });
+  });
+
+  const sorted = [...rankings.values()]
+    .sort((a, b) => b.total - a.total)
+    .slice(0, 10);
+
+  if (!sorted.length) {
+    leaderboard.innerHTML =
+      '<p class="muted">No rankings available for this statistic yet.</p>';
+    return;
+  }
+
+  leaderboard.innerHTML = `
+    <div class="leaderboard-card">
+      <h3>Top 10 · ${escapeHTML(selectedStat)}</h3>
+      ${sorted.map((player, index) => `
+        <div class="leader-row">
+          <div class="rank">#${index + 1}</div>
+          <div>
+            <div class="leader-name">${escapeHTML(player.name)}</div>
+            <div class="muted">
+              ${escapeHTML(player.team)} · ${escapeHTML(player.sport)}
+              · ${player.appearances} game entries
+            </div>
+          </div>
+          <div class="leader-value">
+            ${Number(player.total.toFixed(2)).toLocaleString()}
+          </div>
+        </div>
+      `).join("")}
+    </div>
+  `;
+}
+
 function renderGames() {
   const search = document.getElementById("search").value.toLowerCase();
 
   const filtered = allGames.filter(game => {
-    const sportMatch = selectedSport === "ALL" || game.sport === selectedSport;
-    return sportMatch && JSON.stringify(game).toLowerCase().includes(search);
+    const sportMatch =
+      selectedSport === "ALL" || game.sport === selectedSport;
+
+    return sportMatch &&
+      JSON.stringify(game).toLowerCase().includes(search);
   });
 
   document.getElementById("message").textContent =
-    filtered.length ? `${filtered.length} games found` : "No matching games found.";
+    filtered.length
+      ? `${filtered.length} games found`
+      : "No matching games found.";
 
   document.getElementById("games").innerHTML = filtered.map(game => {
     const teams = Array.isArray(game.teams) ? game.teams : [];
@@ -174,7 +417,9 @@ function renderGames() {
         <span>
           ${escapeHTML(team.team)}
           ${team.home_away ? `(${escapeHTML(team.home_away)})` : ""}
-          ${team.record ? `<span class="muted"> · ${escapeHTML(team.record)}</span>` : ""}
+          ${team.record
+            ? `<span class="muted"> · ${escapeHTML(team.record)}</span>`
+            : ""}
         </span>
         <strong class="${team.winner ? "winner" : ""}">
           ${team.score == null ? "—" : escapeHTML(team.score)}
@@ -187,31 +432,46 @@ function renderGames() {
       <details class="players">
         <summary>View ${players.length} player entries</summary>
         ${players.map(player => {
-          const stats = player.statistics || {};
+          const stats = getPlayerStats(player);
+
           const statText = Object.entries(stats)
             .map(([key, value]) =>
               `${escapeHTML(key)}: ${escapeHTML(
-                typeof value === "object" ? JSON.stringify(value) : value
+                typeof value === "object"
+                  ? JSON.stringify(value)
+                  : value
               )}`
             ).join(" · ");
 
           return `<div class="player">
             <strong>${escapeHTML(player.player)}</strong>
-            ${player.position ? ` · ${escapeHTML(player.position)}` : ""}
-            ${player.team ? ` · ${escapeHTML(player.team)}` : ""}
-            <div class="muted">${statText || "No statistics available"}</div>
+            ${player.position
+              ? ` · ${escapeHTML(player.position)}`
+              : ""}
+            ${player.team
+              ? ` · ${escapeHTML(player.team)}`
+              : ""}
+            <div class="muted">
+              ${statText || "No statistics available"}
+            </div>
           </div>`;
         }).join("")}
       </details>
-    ` : `<p class="muted">No player statistics available for this game.</p>`;
+    ` : `
+      <p class="muted">No player statistics available for this game.</p>
+    `;
 
     return `
       <article class="game">
         <div class="game-top">
-          <strong>${escapeHTML(game.sport)} · ${escapeHTML(game.game)}</strong>
+          <strong>
+            ${escapeHTML(game.sport)} · ${escapeHTML(game.game)}
+          </strong>
           <span class="muted">${displayDate(game.date)}</span>
         </div>
-        <div class="muted">${escapeHTML(game.status || "Status unavailable")}</div>
+        <div class="muted">
+          ${escapeHTML(game.status || "Status unavailable")}
+        </div>
         ${teamHTML || '<p class="muted">No team information available.</p>'}
         ${playerHTML}
       </article>
@@ -224,12 +484,17 @@ async function fetchJSON(filename) {
     `${filename}?refresh=${Date.now()}`,
     { cache: "no-store" }
   );
-  if (!response.ok) throw new Error(`Could not load ${filename}`);
+
+  if (!response.ok) {
+    throw new Error(`Could not load ${filename}`);
+  }
+
   return response.json();
 }
 
 async function loadData() {
   if (isLoading) return;
+
   isLoading = true;
 
   const button = document.getElementById("refreshButton");
@@ -244,12 +509,12 @@ async function loadData() {
       history = await fetchJSON("sports_history.json");
       games = normalizeGames(history);
     } catch (error) {
-      console.log("History file not available; trying latest data.");
+      console.log("History file unavailable; trying latest data.");
     }
 
     if (!games.length) {
       const latest = await fetchJSON("sports_data.json");
-      games = Object.values(latest.sports || {}).flat();
+      games = normalizeGames(latest.sports || {});
       history = latest;
     }
 
@@ -257,30 +522,42 @@ async function loadData() {
       new Date(b.date || 0) - new Date(a.date || 0)
     );
 
-    document.getElementById("totalGames").textContent = allGames.length;
+    document.getElementById("totalGames").textContent =
+      allGames.length;
+
     document.getElementById("nbaGames").textContent =
       allGames.filter(g => g.sport === "NBA").length;
+
     document.getElementById("nflGames").textContent =
       allGames.filter(g => g.sport === "NFL").length;
+
     document.getElementById("nhlGames").textContent =
       allGames.filter(g => g.sport === "NHL").length;
 
-    const updated = history?.last_updated || history?.updated_at || "";
+    const updated =
+      history?.last_updated || history?.updated_at || "";
 
     document.getElementById("updated").textContent =
-      updated ? `Sports data last updated: ${displayDate(updated)}` :
-      "Sports data loaded";
+      updated
+        ? `Sports data last updated: ${displayDate(updated)}`
+        : "Sports data loaded";
 
     document.getElementById("refreshStatus").textContent =
       `Website checked for updates: ${new Date().toLocaleTimeString()}`;
 
     renderGames();
+    renderLeaderboard();
 
   } catch (error) {
     document.getElementById("refreshStatus").textContent =
       "Could not refresh data. Please try again.";
+
     document.getElementById("message").innerHTML =
       `<span class="error">${escapeHTML(error.message)}</span>`;
+
+    document.getElementById("leaderboard").innerHTML =
+      `<p class="error">${escapeHTML(error.message)}</p>`;
+
   } finally {
     isLoading = false;
     button.disabled = false;
@@ -291,19 +568,34 @@ async function loadData() {
 document.querySelectorAll("button[data-sport]").forEach(button => {
   button.addEventListener("click", () => {
     selectedSport = button.dataset.sport;
+
     document.querySelectorAll("button[data-sport]").forEach(b =>
       b.classList.toggle("active", b === button)
     );
+
     renderGames();
   });
 });
 
-document.getElementById("search").addEventListener("input", renderGames);
+document.getElementById("search").addEventListener(
+  "input",
+  renderGames
+);
+
+document.getElementById("leaderboardSport").addEventListener(
+  "change",
+  renderLeaderboard
+);
+
+document.getElementById("leaderboardStat").addEventListener(
+  "change",
+  renderLeaderboard
+);
 
 loadData();
 
-// Automatically check for new data every five minutes.
 setInterval(loadData, 5 * 60 * 1000);
 </script>
+
 </body>
 </html>
