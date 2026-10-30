@@ -76,6 +76,11 @@ tr.clickable{cursor:pointer}
 .compare-cards{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:15px 0}
 .compare-card{background:#172940;border:1px solid var(--border);padding:15px;border-radius:9px}
 .compare-card strong{font-size:17px}
+.standings-group{margin:20px 0 26px}
+.standings-group h3{padding:10px 12px;background:#172940;border-left:3px solid var(--accent);border-radius:5px;margin-bottom:10px}
+.rank{font-weight:900;color:#8acbff}
+.standings-team{font-weight:800}
+.standings-updated{color:var(--muted);font-size:11px;margin-top:14px}
 footer{text-align:center;color:var(--muted);font-size:11px;padding:25px;border-top:1px solid var(--border);letter-spacing:.3px}
 @media(max-width:800px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.grid2{grid-template-columns:1fr}}
 @media(max-width:450px){header{padding:27px 5%}main{padding:22px 4% 45px}.card{padding:15px}.card strong{font-size:27px}.panel{padding:15px}.filters input{min-width:100%}.compare-cards{grid-template-columns:1fr}}
@@ -131,6 +136,22 @@ footer{text-align:center;color:var(--muted);font-size:11px;padding:25px;border-t
     </section>
   </div>
 
+  <!-- NEW: LEAGUE STANDINGS -->
+  <section class="panel">
+    <h2>League Standings & Rankings</h2>
+    <div class="filters">
+      <select id="standingsSport">
+        <option value="NBA">NBA</option>
+        <option value="NFL">NFL</option>
+        <option value="NHL">NHL</option>
+      </select>
+    </div>
+    <div id="standingsTable">
+      <div class="empty">Standings will appear after the first successful standings update.</div>
+    </div>
+    <div class="standings-updated" id="standingsUpdated"></div>
+  </section>
+
   <section class="panel">
     <h2>Player Comparison Center</h2>
     <div class="filters">
@@ -166,7 +187,7 @@ footer{text-align:center;color:var(--muted);font-size:11px;padding:25px;border-t
   </div>
 </div>
 
-<footer>Sports Statistics Tracker · Historical totals cover games collected by this tracker. Data availability and stat categories depend on ESPN feeds.</footer>
+<footer>Sports Statistics Tracker · Historical totals cover games collected by this tracker. Standings are supplied by ESPN and update when the collector runs.</footer>
 
 <script>
 const NBA_TEAMS = [
@@ -189,6 +210,7 @@ const PREFERRED_STATS = {
 
 const $ = id => document.getElementById(id);
 let games=[],players=[],lastUpdated=null,activeProfileKey=null;
+let standingsData={};
 
 function esc(value){
   return String(value??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
@@ -248,7 +270,7 @@ function availableStats(sport){
 }
 function renderCounters(){
   $("totalGames").textContent=games.length;
-  for(const sport of ["NBA","NFL","NHL"])$(""+sport.toLowerCase()+"Games").textContent=games.filter(g=>g.sport===sport).length;
+  for(const sport of ["NBA","NFL","NHL"])$(sport.toLowerCase()+"Games").textContent=games.filter(g=>g.sport===sport).length;
 }
 function renderGames(){
   const sport=$("sportFilter").value,search=$("gameSearch").value.toLowerCase();
@@ -282,19 +304,13 @@ function renderTeams(){
   const sport=$("teamSport").value;
   const map=new Map();
 
-  // Preload all 30 NBA teams so none are missing.
   if(sport==="NBA"){
-    for(const name of NBA_TEAMS){
-      map.set(name,{name,record:[],wins:0,losses:0,finished:0});
-    }
+    for(const name of NBA_TEAMS)map.set(name,{name,record:[],wins:0,losses:0,finished:0});
   }
 
-  // Add records and results from collected games.
   for(const game of games.filter(g=>g.sport===sport)){
     for(const t of game.teams||[]){
-      if(!map.has(t.team)){
-        map.set(t.team,{name:t.team,record:[],wins:0,losses:0,finished:0});
-      }
+      if(!map.has(t.team))map.set(t.team,{name:t.team,record:[],wins:0,losses:0,finished:0});
       const item=map.get(t.team);
       if(t.record?.length)item.record=t.record;
       if(isFinal(game)){
@@ -317,6 +333,71 @@ function renderTeams(){
       return `<tr><td>${esc(t.name)}</td><td>${esc(overall?.summary||"—")}</td><td>${t.finished?`${t.wins}-${t.losses}`:"—"}</td></tr>`;
     }).join("")}
   </tbody></table>`;
+}
+
+/* NEW: LEAGUE STANDINGS DISPLAY */
+function findStat(stats,names){
+  for(const name of names){
+    if(stats[name]!==undefined&&stats[name]!==null&&stats[name]!=="")return stats[name];
+  }
+  return null;
+}
+function displayPct(value){
+  if(value===null||value===undefined||value==="")return "—";
+  const n=Number(value);
+  if(Number.isFinite(n)){
+    if(n>0&&n<=1)return n.toFixed(3).replace(/^0/,"");
+    return n.toFixed(3);
+  }
+  return String(value);
+}
+function renderStandings(){
+  const sport=$("standingsSport").value;
+  const league=standingsData[sport];
+
+  if(!league||!Array.isArray(league.groups)||!league.groups.length){
+    $("standingsTable").innerHTML=`<div class="empty">No ${sport} standings are saved yet. Use Refresh data or wait for the next scheduled collector run. If ESPN's standings feed is temporarily unavailable, the last successful standings will be kept.</div>`;
+    $("standingsUpdated").textContent="";
+    return;
+  }
+
+  let html="";
+  for(const group of league.groups){
+    const teams=group.teams||[];
+    if(!teams.length)continue;
+
+    html+=`<div class="standings-group">
+      <h3>${esc(group.name||"League standings")}</h3>
+      <div class="table-wrap"><table>
+        <thead><tr>
+          <th>Rank</th><th>Team</th><th>W</th><th>L</th><th>PCT</th><th>GB</th><th>Streak</th>
+        </tr></thead><tbody>`;
+
+    html+=teams.map((team,index)=>{
+      const stats=team.stats||{};
+      const wins=findStat(stats,["wins","win"]);
+      const losses=findStat(stats,["losses","loss"]);
+      const pct=findStat(stats,["winPercent","winningPercentage","winPct","pct"]);
+      const gamesBehind=findStat(stats,["gamesBehind","games_back","gamesBack"]);
+      const streak=findStat(stats,["streak","streakDisplayValue"]);
+      return `<tr>
+        <td class="rank">${esc(team.rank||index+1)}</td>
+        <td class="standings-team">${esc(team.team||"Unknown team")}</td>
+        <td>${esc(wins??"—")}</td>
+        <td>${esc(losses??"—")}</td>
+        <td>${esc(displayPct(pct))}</td>
+        <td>${esc(gamesBehind??"—")}</td>
+        <td>${esc(streak??"—")}</td>
+      </tr>`;
+    }).join("");
+
+    html+="</tbody></table></div></div>";
+  }
+
+  $("standingsTable").innerHTML=html||'<div class="empty">ESPN returned standings data, but no team tables were found.</div>';
+  $("standingsUpdated").textContent=league.last_updated
+    ?"Standings last updated: "+new Date(league.last_updated).toLocaleString()
+    :"Standings update time unavailable.";
 }
 
 function populateComparePlayers(){
@@ -389,36 +470,61 @@ function renderAll(){
   players=allPlayers();renderCounters();renderGames();
   const leaderOptions=fillStatSelect("leaderStat",$("leaderSport").value);
   if(!leaderOptions.length)$("leaderStat").innerHTML='<option value="">No stats yet</option>';
-  renderLeaderboard();renderTeams();populateComparePlayers();renderPlayers();
+  renderLeaderboard();renderTeams();renderStandings();populateComparePlayers();renderPlayers();
 }
+
 async function loadData(){
   $("status").textContent="Loading sports data...";
   let history=null,source="";
+  let currentData=null;
+
+  // Load historical games first, as before.
   try{
     const response=await fetch("sports_history.json?t="+Date.now(),{cache:"no-store"});
     if(response.ok){history=await response.json();source="sports_history.json";}
   }catch(e){}
+
+  // Always load sports_data.json separately because it contains current standings.
+  try{
+    const response=await fetch("sports_data.json?t="+Date.now(),{cache:"no-store"});
+    if(response.ok)currentData=await response.json();
+  }catch(e){}
+
+  // Fallback to current game data if historical data is not available.
   if(!history||!history.games){
-    try{
-      const response=await fetch("sports_data.json?t="+Date.now(),{cache:"no-store"});
-      if(response.ok){
-        const data=await response.json();history={games:{}};
-        for(const sport of Object.keys(data.sports||[]))for(const game of data.sports[sport]||[])history.games[`${sport}_${game.game_id}`]=game;
-        history.last_updated=data.last_updated;source="sports_data.json";
+    if(currentData){
+      history={games:{}};
+      for(const sport of Object.keys(currentData.sports||{})){
+        for(const game of currentData.sports[sport]||[]){
+          history.games[`${sport}_${game.game_id}`]=game;
+        }
       }
-    }catch(e){}
+      history.last_updated=currentData.last_updated;
+      source="sports_data.json";
+    }
   }
-  if(!history||!history.games){$("status").textContent="Could not load JSON data. Check that sports_history.json or sports_data.json is in the repository root.";return;}
+
+  if(!history||!history.games){
+    $("status").textContent="Could not load JSON data. Check that sports_history.json or sports_data.json is in the repository root.";
+    return;
+  }
+
   games=Object.values(history.games).filter(g=>g&&g.sport);
-  lastUpdated=history.last_updated||null;renderAll();
-  $("status").textContent=`${games.length} games loaded · ${source} · Updated: ${lastUpdated||"Not provided"}`;
+  standingsData=(currentData&&currentData.standings)||{};
+  lastUpdated=history.last_updated||null;
+  renderAll();
+
+  const standingsCount=Object.keys(standingsData).filter(s=>standingsData[s]?.groups?.length).length;
+  $("status").textContent=`${games.length} games loaded · ${source} · ${standingsCount}/3 league standings loaded · Updated: ${lastUpdated||"Not provided"}`;
 }
+
 $("refreshBtn").addEventListener("click",loadData);
 $("gameSearch").addEventListener("input",renderGames);
 $("sportFilter").addEventListener("change",renderGames);
 $("leaderSport").addEventListener("change",()=>{fillStatSelect("leaderStat",$("leaderSport").value);renderLeaderboard();});
 $("leaderStat").addEventListener("change",renderLeaderboard);
 $("teamSport").addEventListener("change",renderTeams);
+$("standingsSport").addEventListener("change",renderStandings);
 $("compareSport").addEventListener("change",populateComparePlayers);
 $("playerOne").addEventListener("change",renderComparison);
 $("playerTwo").addEventListener("change",renderComparison);
