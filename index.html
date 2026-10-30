@@ -7,18 +7,10 @@
 <title>Sports Statistics Tracker</title>
 <style>
 :root {
-  --bg:#080e1a;
-  --panel:#111c2e;
-  --panel2:#19283e;
-  --text:#f5f7fc;
-  --muted:#9eacc1;
-  --border:#263852;
-  --accent:#36a5ff;
-  --green:#35d49a;
-  --red:#ff656e;
-  --nba:#ff914d;
-  --nfl:#55a5ff;
-  --nhl:#65d5c4;
+  --bg:#080e1a;--panel:#111c2e;--panel2:#19283e;
+  --text:#f5f7fc;--muted:#9eacc1;--border:#263852;
+  --accent:#36a5ff;--green:#35d49a;--red:#ff656e;
+  --nba:#ff914d;--nfl:#55a5ff;--nhl:#65d5c4;
 }
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,Arial,sans-serif;line-height:1.5}
@@ -97,10 +89,7 @@ footer{text-align:center;color:var(--muted);font-size:11px;padding:25px;border-t
 
 <main>
   <div class="topbar">
-    <div>
-      <strong>Sports Center</strong>
-      <div id="status">Loading sports data...</div>
-    </div>
+    <div><strong>Sports Center</strong><div id="status">Loading sports data...</div></div>
     <button id="refreshBtn">↻ Refresh data</button>
   </div>
 
@@ -116,10 +105,8 @@ footer{text-align:center;color:var(--muted);font-size:11px;padding:25px;border-t
     <div class="filters">
       <input id="gameSearch" placeholder="Search teams or games...">
       <select id="sportFilter">
-        <option value="ALL">All leagues</option>
-        <option value="NBA">NBA</option>
-        <option value="NFL">NFL</option>
-        <option value="NHL">NHL</option>
+        <option value="ALL">All leagues</option><option value="NBA">NBA</option>
+        <option value="NFL">NFL</option><option value="NHL">NHL</option>
       </select>
     </div>
     <div id="gamesList"></div>
@@ -129,11 +116,7 @@ footer{text-align:center;color:var(--muted);font-size:11px;padding:25px;border-t
     <section class="panel">
       <h2>Player Leaderboard</h2>
       <div class="filters">
-        <select id="leaderSport">
-          <option value="NBA">NBA</option>
-          <option value="NFL">NFL</option>
-          <option value="NHL">NHL</option>
-        </select>
+        <select id="leaderSport"><option value="NBA">NBA</option><option value="NFL">NFL</option><option value="NHL">NHL</option></select>
         <select id="leaderStat"></select>
       </div>
       <div class="table-wrap" id="leaderboard"></div>
@@ -142,11 +125,7 @@ footer{text-align:center;color:var(--muted);font-size:11px;padding:25px;border-t
     <section class="panel">
       <h2>Team Analytics</h2>
       <div class="filters">
-        <select id="teamSport">
-          <option value="NBA">NBA</option>
-          <option value="NFL">NFL</option>
-          <option value="NHL">NHL</option>
-        </select>
+        <select id="teamSport"><option value="NBA">NBA</option><option value="NFL">NFL</option><option value="NHL">NHL</option></select>
       </div>
       <div class="table-wrap" id="teamRecords"></div>
     </section>
@@ -155,11 +134,7 @@ footer{text-align:center;color:var(--muted);font-size:11px;padding:25px;border-t
   <section class="panel">
     <h2>Player Comparison Center</h2>
     <div class="filters">
-      <select id="compareSport">
-        <option value="NBA">NBA</option>
-        <option value="NFL">NFL</option>
-        <option value="NHL">NHL</option>
-      </select>
+      <select id="compareSport"><option value="NBA">NBA</option><option value="NFL">NFL</option><option value="NHL">NHL</option></select>
       <select id="playerOne"><option value="">Select first player</option></select>
       <select id="playerTwo"><option value="">Select second player</option></select>
     </div>
@@ -170,12 +145,7 @@ footer{text-align:center;color:var(--muted);font-size:11px;padding:25px;border-t
     <h2>All Tracked Players</h2>
     <div class="filters">
       <input id="playerSearch" placeholder="Search player names or teams...">
-      <select id="allPlayerSport">
-        <option value="ALL">All leagues</option>
-        <option value="NBA">NBA</option>
-        <option value="NFL">NFL</option>
-        <option value="NHL">NHL</option>
-      </select>
+      <select id="allPlayerSport"><option value="ALL">All leagues</option><option value="NBA">NBA</option><option value="NFL">NFL</option><option value="NHL">NHL</option></select>
     </div>
     <div class="table-wrap" id="playersTable"></div>
   </section>
@@ -184,42 +154,33 @@ footer{text-align:center;color:var(--muted);font-size:11px;padding:25px;border-t
 <div class="modal" id="playerModal">
   <div class="modal-content">
     <div class="modal-head">
-      <div>
-        <h2 id="modalName">Player profile</h2>
-        <div id="modalInfo" class="muted"></div>
-      </div>
+      <div><h2 id="modalName">Player profile</h2><div id="modalInfo" class="muted"></div></div>
       <button class="close" id="closeModal">×</button>
     </div>
-
-    <div class="section-heading">
-      <h3>Accumulated statistics</h3>
-      <span class="muted" id="profileGameCount"></span>
-    </div>
+    <div class="section-heading"><h3>Accumulated statistics</h3><span class="muted" id="profileGameCount"></span></div>
     <div id="modalStats"></div>
-
-    <div class="section-heading">
-      <h3>Performance over time</h3>
-      <select id="profileChartStat"></select>
-    </div>
-    <div class="chart-box">
-      <div id="profileChart"></div>
-      <div class="chart-tooltip" id="profileChartInfo">Choose a statistic to explore game-by-game performance.</div>
-    </div>
-
-    <h3>Best recorded performance</h3>
-    <div id="bestPerformance"></div>
-
-    <h3>Game-by-game statistics</h3>
-    <div class="table-wrap" id="modalGames"></div>
+    <div class="section-heading"><h3>Performance over time</h3><select id="profileChartStat"></select></div>
+    <div class="chart-box"><div id="profileChart"></div><div class="chart-tooltip" id="profileChartInfo">Choose a statistic to explore game-by-game performance.</div></div>
+    <h3>Best recorded performance</h3><div id="bestPerformance"></div>
+    <h3>Game-by-game statistics</h3><div class="table-wrap" id="modalGames"></div>
   </div>
 </div>
 
-<footer>
-  Sports Statistics Tracker · Historical totals cover games collected by this tracker.
-  Data availability and stat categories depend on ESPN feeds.
-</footer>
+<footer>Sports Statistics Tracker · Historical totals cover games collected by this tracker. Data availability and stat categories depend on ESPN feeds.</footer>
 
 <script>
+const NBA_TEAMS = [
+  "Atlanta Hawks","Boston Celtics","Brooklyn Nets","Charlotte Hornets",
+  "Chicago Bulls","Cleveland Cavaliers","Dallas Mavericks","Denver Nuggets",
+  "Detroit Pistons","Golden State Warriors","Houston Rockets","Indiana Pacers",
+  "LA Clippers","Los Angeles Lakers","Memphis Grizzlies","Miami Heat",
+  "Milwaukee Bucks","Minnesota Timberwolves","New Orleans Pelicans",
+  "New York Knicks","Oklahoma City Thunder","Orlando Magic",
+  "Philadelphia 76ers","Phoenix Suns","Portland Trail Blazers",
+  "Sacramento Kings","San Antonio Spurs","Toronto Raptors","Utah Jazz",
+  "Washington Wizards"
+];
+
 const PREFERRED_STATS = {
   NBA:["PTS","REB","AST","STL","BLK","TO","MIN","+/-"],
   NFL:["YDS","PASS YDS","RUSH YDS","REC YDS","TD","PASS TD","RUSH TD","REC TD","TACKLES","SACKS","INT"],
@@ -227,468 +188,235 @@ const PREFERRED_STATS = {
 };
 
 const $ = id => document.getElementById(id);
-let games = [];
-let players = [];
-let lastUpdated = null;
-let activeProfileKey = null;
+let games=[],players=[],lastUpdated=null,activeProfileKey=null;
 
-function esc(value) {
-  return String(value ?? "").replace(/[&<>"']/g,c=>({
-    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
-  }[c]));
+function esc(value){
+  return String(value??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 }
-
-function numeric(value) {
-  if(value===null || value===undefined) return null;
+function numeric(value){
+  if(value===null||value===undefined)return null;
   const s=String(value).trim();
-  if(!s || ["--","-","N/A"].includes(s)) return null;
-  if(!/^-?\d+(\.\d+)?$/.test(s)) return null;
-  const n=Number(s);
-  return Number.isFinite(n)?n:null;
+  if(!s||["--","-","N/A"].includes(s))return null;
+  if(!/^-?\d+(\.\d+)?$/.test(s))return null;
+  const n=Number(s);return Number.isFinite(n)?n:null;
 }
-
-function fmt(n) {
-  if(n===null || n===undefined || !Number.isFinite(n)) return "—";
+function fmt(n){
+  if(n===null||n===undefined||!Number.isFinite(n))return "—";
   return Number.isInteger(n)?String(n):n.toFixed(1);
 }
-
-function gameDate(game) {
+function gameDate(game){
   const d=new Date(game.date);
   return Number.isNaN(d.getTime())?(game.date||"Date unavailable"):d.toLocaleString();
 }
+function isFinal(game){return /final|full time|completed|game over/i.test(game.status||"");}
 
-function isFinal(game) {
-  return /final|full time|completed|game over/i.test(game.status||"");
-}
-
-function allPlayers() {
+function allPlayers(){
   const out=[];
-  for(const game of games) {
-    for(const p of game.players||[]) {
-      out.push({
-        ...p,
-        sport:game.sport,
-        gameName:game.game,
-        gameDate:game.date,
-        gameStatus:game.status,
-        gameId:game.game_id,
-        final:isFinal(game)
-      });
-    }
+  for(const game of games)for(const p of game.players||[]){
+    out.push({...p,sport:game.sport,gameName:game.game,gameDate:game.date,gameStatus:game.status,gameId:game.game_id,final:isFinal(game)});
   }
   return out;
 }
-
-function uniquePlayers(sport=null) {
+function uniquePlayers(sport=null){
   const map=new Map();
-  for(const p of players) {
-    if(sport && p.sport!==sport) continue;
+  for(const p of players){
+    if(sport&&p.sport!==sport)continue;
     const key=p.sport+"_"+(p.player_id||p.player);
-    if(!map.has(key)) map.set(key,{
-      key,name:p.player,team:p.team,sport:p.sport,records:[]
-    });
+    if(!map.has(key))map.set(key,{key,name:p.player,team:p.team,sport:p.sport,records:[]});
     map.get(key).records.push(p);
   }
   return [...map.values()];
 }
-
-function totalsFor(player) {
+function totalsFor(player){
   const totals={};
-  for(const r of player.records) {
-    for(const [stat,value] of Object.entries(r.statistics||{})) {
-      const n=numeric(value);
-      if(n!==null) totals[stat]=(totals[stat]||0)+n;
-    }
+  for(const r of player.records)for(const [stat,value] of Object.entries(r.statistics||{})){
+    const n=numeric(value);if(n!==null)totals[stat]=(totals[stat]||0)+n;
   }
   return totals;
 }
-
-function averageFor(player,stat) {
-  const values=player.records.map(r=>numeric((r.statistics||{})[stat]))
-    .filter(v=>v!==null);
-  if(!values.length) return null;
+function averageFor(player,stat){
+  const values=player.records.map(r=>numeric((r.statistics||{})[stat])).filter(v=>v!==null);
+  if(!values.length)return null;
   return values.reduce((a,b)=>a+b,0)/values.length;
 }
-
-function availableStats(sport) {
+function availableStats(sport){
   const found=new Set();
-  for(const p of players.filter(p=>p.sport===sport)) {
-    for(const [stat,value] of Object.entries(p.statistics||{})) {
-      if(numeric(value)!==null) found.add(stat);
-    }
-  }
+  for(const p of players.filter(p=>p.sport===sport))
+    for(const [stat,value] of Object.entries(p.statistics||{}))if(numeric(value)!==null)found.add(stat);
   const preferred=PREFERRED_STATS[sport]||[];
-  return [...preferred.filter(s=>found.has(s)),...([...found].filter(s=>!preferred.includes(s)).sort())];
+  return [...preferred.filter(s=>found.has(s)),...[...found].filter(s=>!preferred.includes(s)).sort()];
 }
-
-function renderCounters() {
+function renderCounters(){
   $("totalGames").textContent=games.length;
-  for(const sport of ["NBA","NFL","NHL"]) {
-    $(sport.toLowerCase()+"Games").textContent=games.filter(g=>g.sport===sport).length;
-  }
+  for(const sport of ["NBA","NFL","NHL"])$(""+sport.toLowerCase()+"Games").textContent=games.filter(g=>g.sport===sport).length;
 }
-
-function renderGames() {
-  const sport=$("sportFilter").value;
-  const search=$("gameSearch").value.toLowerCase();
-  const filtered=games.filter(g=>
-    (sport==="ALL"||g.sport===sport) &&
-    (`${g.game} ${g.status} ${g.sport}`).toLowerCase().includes(search)
-  ).sort((a,b)=>new Date(b.date)-new Date(a.date));
-
-  if(!filtered.length) {
-    $("gamesList").innerHTML='<div class="empty">No games found. Games will appear as the collector gathers them.</div>';
-    return;
-  }
-
+function renderGames(){
+  const sport=$("sportFilter").value,search=$("gameSearch").value.toLowerCase();
+  const filtered=games.filter(g=>(sport==="ALL"||g.sport===sport)&&(`${g.game} ${g.status} ${g.sport}`).toLowerCase().includes(search)).sort((a,b)=>new Date(b.date)-new Date(a.date));
+  if(!filtered.length){$("gamesList").innerHTML='<div class="empty">No games found. Games will appear as the collector gathers them.</div>';return;}
   $("gamesList").innerHTML=filtered.slice(0,150).map(g=>`
-    <div class="game">
-      <div class="game-title">${esc(g.game||"Game")}</div>
-      <span class="pill">${esc(g.sport)}</span>
-      ${(g.teams||[]).map(t=>`
-        <div class="team-line">
-          <span class="${t.winner?"winner":""}">${esc(t.team)}</span>
-          <strong>${esc(t.score??"—")}</strong>
-        </div>`).join("")}
-      <div class="game-meta">${esc(gameDate(g))} · ${esc(g.status||"Status unavailable")}</div>
-    </div>`).join("");
+    <div class="game"><div class="game-title">${esc(g.game||"Game")}</div><span class="pill">${esc(g.sport)}</span>
+    ${(g.teams||[]).map(t=>`<div class="team-line"><span class="${t.winner?"winner":""}">${esc(t.team)}</span><strong>${esc(t.score??"—")}</strong></div>`).join("")}
+    <div class="game-meta">${esc(gameDate(g))} · ${esc(g.status||"Status unavailable")}</div></div>`).join("");
 }
-
-function fillStatSelect(selectId,sport,selected=null) {
+function fillStatSelect(selectId,sport,selected=null){
   const options=availableStats(sport);
-  $(selectId).innerHTML=options.map(s=>
-    `<option value="${esc(s)}">${esc(s)}</option>`
-  ).join("");
-  if(selected && options.includes(selected)) $(selectId).value=selected;
+  $(selectId).innerHTML=options.map(s=>`<option value="${esc(s)}">${esc(s)}</option>`).join("");
+  if(selected&&options.includes(selected))$(selectId).value=selected;
   return options;
 }
-
-function renderLeaderboard() {
-  const sport=$("leaderSport").value;
-  const stat=$("leaderStat").value;
-  if(!stat) {
-    $("leaderboard").innerHTML='<div class="empty">No numeric player statistics are available for this league yet.</div>';
-    return;
-  }
-
-  const ranked=uniquePlayers(sport).map(p=>({
-    ...p,
-    total:totalsFor(p)[stat]||0,
-    average:averageFor(p,stat)
-  })).filter(p=>p.records.some(r=>numeric((r.statistics||{})[stat])!==null))
-    .sort((a,b)=>b.total-a.total).slice(0,20);
-
-  if(!ranked.length) {
-    $("leaderboard").innerHTML='<div class="empty">Player statistics will appear when ESPN publishes box scores.</div>';
-    return;
-  }
-
-  $("leaderboard").innerHTML=`<table><thead><tr>
-    <th>#</th><th>Player</th><th>Team</th><th>Total ${esc(stat)}</th><th>Per recorded game</th>
-  </tr></thead><tbody>${ranked.map((p,i)=>`
-    <tr class="clickable" data-player="${esc(p.key)}">
-      <td>${i+1}</td><td>${esc(p.name)}</td><td>${esc(p.team)}</td>
-      <td>${fmt(p.total)}</td><td>${fmt(p.average)}</td>
-    </tr>`).join("")}</tbody></table>`;
-
-  $("leaderboard").querySelectorAll("[data-player]").forEach(row=>
-    row.addEventListener("click",()=>openPlayer(row.dataset.player))
-  );
+function renderLeaderboard(){
+  const sport=$("leaderSport").value,stat=$("leaderStat").value;
+  if(!stat){$("leaderboard").innerHTML='<div class="empty">No numeric player statistics are available for this league yet.</div>';return;}
+  const ranked=uniquePlayers(sport).map(p=>({...p,total:totalsFor(p)[stat]||0,average:averageFor(p,stat)}))
+    .filter(p=>p.records.some(r=>numeric((r.statistics||{})[stat])!==null)).sort((a,b)=>b.total-a.total).slice(0,20);
+  if(!ranked.length){$("leaderboard").innerHTML='<div class="empty">Player statistics will appear when ESPN publishes box scores.</div>';return;}
+  $("leaderboard").innerHTML=`<table><thead><tr><th>#</th><th>Player</th><th>Team</th><th>Total ${esc(stat)}</th><th>Per recorded game</th></tr></thead><tbody>
+    ${ranked.map((p,i)=>`<tr class="clickable" data-player="${esc(p.key)}"><td>${i+1}</td><td>${esc(p.name)}</td><td>${esc(p.team)}</td><td>${fmt(p.total)}</td><td>${fmt(p.average)}</td></tr>`).join("")}
+    </tbody></table>`;
+  $("leaderboard").querySelectorAll("[data-player]").forEach(row=>row.addEventListener("click",()=>openPlayer(row.dataset.player)));
 }
 
-function renderTeams() {
+/* TEAM ANALYTICS: ALL 30 NBA TEAMS PLUS COLLECTED NFL AND NHL TEAMS */
+function renderTeams(){
   const sport=$("teamSport").value;
   const map=new Map();
 
-  for(const game of games.filter(g=>g.sport===sport)) {
-    for(const t of game.teams||[]) {
-      if(!map.has(t.team)) map.set(t.team,{
-        name:t.team,record:t.record||[],wins:0,losses:0,finished:0
-      });
+  // Preload all 30 NBA teams so none are missing.
+  if(sport==="NBA"){
+    for(const name of NBA_TEAMS){
+      map.set(name,{name,record:[],wins:0,losses:0,finished:0});
+    }
+  }
+
+  // Add records and results from collected games.
+  for(const game of games.filter(g=>g.sport===sport)){
+    for(const t of game.teams||[]){
+      if(!map.has(t.team)){
+        map.set(t.team,{name:t.team,record:[],wins:0,losses:0,finished:0});
+      }
       const item=map.get(t.team);
-      if(t.record?.length) item.record=t.record;
-      if(isFinal(game)) {
+      if(t.record?.length)item.record=t.record;
+      if(isFinal(game)){
         item.finished++;
-        if(t.winner) item.wins++;
+        if(t.winner)item.wins++;
         else item.losses++;
       }
     }
   }
 
   const rows=[...map.values()].sort((a,b)=>a.name.localeCompare(b.name));
-  if(!rows.length) {
+  if(!rows.length){
     $("teamRecords").innerHTML='<div class="empty">Team information will appear as games are collected.</div>';
     return;
   }
 
   $("teamRecords").innerHTML=`<table><thead><tr><th>Team</th><th>ESPN record</th><th>Tracked W-L</th></tr></thead><tbody>
     ${rows.map(t=>{
-      const overall=t.record.find(r=>(r.type||"").toLowerCase()==="total"||
-        (r.name||"").toLowerCase()==="overall");
-      return `<tr><td>${esc(t.name)}</td><td>${esc(overall?.summary||"—")}</td>
-        <td>${t.finished?`${t.wins}-${t.losses}`:"—"}</td></tr>`;
+      const overall=t.record.find(r=>(r.type||"").toLowerCase()==="total"||(r.name||"").toLowerCase()==="overall");
+      return `<tr><td>${esc(t.name)}</td><td>${esc(overall?.summary||"—")}</td><td>${t.finished?`${t.wins}-${t.losses}`:"—"}</td></tr>`;
     }).join("")}
   </tbody></table>`;
 }
 
-function populateComparePlayers() {
-  const sport=$("compareSport").value;
-  const list=uniquePlayers(sport).sort((a,b)=>a.name.localeCompare(b.name));
-  for(const id of ["playerOne","playerTwo"]) {
+function populateComparePlayers(){
+  const sport=$("compareSport").value,list=uniquePlayers(sport).sort((a,b)=>a.name.localeCompare(b.name));
+  for(const id of ["playerOne","playerTwo"]){
     const old=$(id).value;
-    $(id).innerHTML='<option value="">Select player</option>'+
-      list.map(p=>`<option value="${esc(p.key)}">${esc(p.name)} — ${esc(p.team)}</option>`).join("");
-    if(list.some(p=>p.key===old)) $(id).value=old;
+    $(id).innerHTML='<option value="">Select player</option>'+list.map(p=>`<option value="${esc(p.key)}">${esc(p.name)} — ${esc(p.team)}</option>`).join("");
+    if(list.some(p=>p.key===old))$(id).value=old;
   }
   renderComparison();
 }
-
-function renderComparison() {
-  const one=uniquePlayers().find(p=>p.key===$("playerOne").value);
-  const two=uniquePlayers().find(p=>p.key===$("playerTwo").value);
-  if(!one||!two) {
-    $("comparison").innerHTML='<div class="empty">Choose two players to compare their collected statistics.</div>';
-    return;
-  }
-  if(one.sport!==two.sport) {
-    $("comparison").innerHTML='<div class="empty">Choose players from the same league.</div>';
-    return;
-  }
-
+function renderComparison(){
+  const one=uniquePlayers().find(p=>p.key===$("playerOne").value),two=uniquePlayers().find(p=>p.key===$("playerTwo").value);
+  if(!one||!two){$("comparison").innerHTML='<div class="empty">Choose two players to compare their collected statistics.</div>';return;}
+  if(one.sport!==two.sport){$("comparison").innerHTML='<div class="empty">Choose players from the same league.</div>';return;}
   const stats=[...new Set([...Object.keys(totalsFor(one)),...Object.keys(totalsFor(two))])];
-  if(!stats.length) {
-    $("comparison").innerHTML='<div class="empty">There are no numeric statistics available for these players yet.</div>';
-    return;
-  }
-
-  $("comparison").innerHTML=`
-    <div class="compare-cards">
-      <div class="compare-card"><strong>${esc(one.name)}</strong><div class="muted">${esc(one.team)}</div></div>
-      <div class="compare-card"><strong>${esc(two.name)}</strong><div class="muted">${esc(two.team)}</div></div>
-    </div>
+  if(!stats.length){$("comparison").innerHTML='<div class="empty">There are no numeric statistics available for these players yet.</div>';return;}
+  $("comparison").innerHTML=`<div class="compare-cards"><div class="compare-card"><strong>${esc(one.name)}</strong><div class="muted">${esc(one.team)}</div></div><div class="compare-card"><strong>${esc(two.name)}</strong><div class="muted">${esc(two.team)}</div></div></div>
     <div class="table-wrap"><table><thead><tr><th>Statistic</th><th>${esc(one.name)}</th><th>${esc(two.name)}</th></tr></thead><tbody>
-    ${stats.map(s=>`<tr><td>${esc(s)}</td><td>${fmt(totalsFor(one)[s]??null)}</td><td>${fmt(totalsFor(two)[s]??null)}</td></tr>`).join("")}
-    </tbody></table></div>`;
+    ${stats.map(s=>`<tr><td>${esc(s)}</td><td>${fmt(totalsFor(one)[s]??null)}</td><td>${fmt(totalsFor(two)[s]??null)}</td></tr>`).join("")}</tbody></table></div>`;
 }
-
-function renderPlayers() {
-  const sport=$("allPlayerSport").value;
-  const search=$("playerSearch").value.toLowerCase();
-  const list=uniquePlayers(sport==="ALL"?null:sport)
-    .filter(p=>(`${p.name} ${p.team} ${p.sport}`).toLowerCase().includes(search))
-    .sort((a,b)=>a.name.localeCompare(b.name));
-
-  if(!list.length) {
-    $("playersTable").innerHTML='<div class="empty">No players found yet.</div>';
-    return;
-  }
-
+function renderPlayers(){
+  const sport=$("allPlayerSport").value,search=$("playerSearch").value.toLowerCase();
+  const list=uniquePlayers(sport==="ALL"?null:sport).filter(p=>(`${p.name} ${p.team} ${p.sport}`).toLowerCase().includes(search)).sort((a,b)=>a.name.localeCompare(b.name));
+  if(!list.length){$("playersTable").innerHTML='<div class="empty">No players found yet.</div>';return;}
   $("playersTable").innerHTML=`<table><thead><tr><th>Player</th><th>Team</th><th>League</th><th>Records</th><th>Profile</th></tr></thead><tbody>
-    ${list.slice(0,300).map(p=>`<tr class="clickable" data-player="${esc(p.key)}">
-      <td>${esc(p.name)}</td><td>${esc(p.team)}</td><td>${esc(p.sport)}</td>
-      <td>${p.records.length}</td><td><span class="pill">View profile →</span></td>
-    </tr>`).join("")}
-  </tbody></table>`;
-
-  $("playersTable").querySelectorAll("[data-player]").forEach(row=>
-    row.addEventListener("click",()=>openPlayer(row.dataset.player))
-  );
+    ${list.slice(0,300).map(p=>`<tr class="clickable" data-player="${esc(p.key)}"><td>${esc(p.name)}</td><td>${esc(p.team)}</td><td>${esc(p.sport)}</td><td>${p.records.length}</td><td><span class="pill">View profile →</span></td></tr>`).join("")}
+    </tbody></table>`;
+  $("playersTable").querySelectorAll("[data-player]").forEach(row=>row.addEventListener("click",()=>openPlayer(row.dataset.player)));
 }
-
-function drawChart(containerId,records,stat,infoId) {
-  const usable=records.map((r,i)=>({
-    index:i+1,
-    value:numeric((r.statistics||{})[stat]),
-    game:r.gameName||"Game",
-    date:r.gameDate
-  })).filter(x=>x.value!==null);
-
-  if(!usable.length) {
-    $(containerId).innerHTML='<div class="empty">No numeric values available for this statistic yet.</div>';
-    if(infoId) $(infoId).textContent="";
-    return;
-  }
-
-  const W=760,H=250,L=48,R=18,T=20,B=40;
-  const minVal=Math.min(0,...usable.map(x=>x.value));
-  const maxVal=Math.max(1,...usable.map(x=>x.value));
-  const range=Math.max(1,maxVal-minVal);
-  const x=i=>L+(usable.length===1?(W-L-R)/2:i*(W-L-R)/(usable.length-1));
-  const y=v=>T+(H-T-B)-(v-minVal)/range*(H-T-B);
+function drawChart(containerId,records,stat,infoId){
+  const usable=records.map((r,i)=>({index:i+1,value:numeric((r.statistics||{})[stat]),game:r.gameName||"Game",date:r.gameDate})).filter(x=>x.value!==null);
+  if(!usable.length){$(containerId).innerHTML='<div class="empty">No numeric values available for this statistic yet.</div>';if(infoId)$(infoId).textContent="";return;}
+  const W=760,H=250,L=48,R=18,T=20,B=40,minVal=Math.min(0,...usable.map(x=>x.value)),maxVal=Math.max(1,...usable.map(x=>x.value)),range=Math.max(1,maxVal-minVal);
+  const x=i=>L+(usable.length===1?(W-L-R)/2:i*(W-L-R)/(usable.length-1)),y=v=>T+(H-T-B)-(v-minVal)/range*(H-T-B);
   const points=usable.map((p,i)=>`${x(i)},${y(p.value)}`).join(" ");
-  const grid=[0,1,2,3].map(i=>{
-    const v=minVal+range*i/3;
-    return `<line x1="${L}" y1="${y(v)}" x2="${W-R}" y2="${y(v)}" stroke="#263a55" stroke-dasharray="4 5"/>
-      <text x="${L-9}" y="${y(v)+4}" text-anchor="end" fill="#9eacc1" font-size="11">${fmt(v)}</text>`;
-  }).join("");
-
-  const circles=usable.map((p,i)=>`
-    <circle cx="${x(i)}" cy="${y(p.value)}" r="5" fill="#36a5ff" stroke="#d8edff" stroke-width="1.5"
-      data-chart-index="${i}" style="cursor:pointer"/>
-  `).join("");
-
-  const labels=usable.map((p,i)=>{
-    if(usable.length>10 && i!==0 && i!==usable.length-1 && i%Math.ceil(usable.length/6)!==0) return "";
-    return `<text x="${x(i)}" y="${H-12}" text-anchor="middle" fill="#9eacc1" font-size="10">${p.index}</text>`;
-  }).join("");
-
-  $(containerId).innerHTML=`
-    <svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(stat)} performance by recorded game">
-      ${grid}
-      <polyline points="${points}" fill="none" stroke="#36a5ff" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
-      ${circles}${labels}
-    </svg>
-    <div class="chart-legend"><span>Recorded game number →</span><span>${usable.length} data points</span></div>`;
-
-  const info=idx=>{
-    const p=usable[idx];
-    if(!p) return;
-    if(infoId) $(infoId).textContent=
-      `Game ${p.index}: ${fmt(p.value)} ${stat} · ${p.game} · ${p.date?new Date(p.date).toLocaleDateString():"Date unavailable"}`;
-  };
-
-  $(containerId).querySelectorAll("[data-chart-index]").forEach(c=>{
-    c.addEventListener("click",()=>info(Number(c.dataset.chartIndex)));
-    c.addEventListener("mouseenter",()=>info(Number(c.dataset.chartIndex)));
-  });
-
+  const grid=[0,1,2,3].map(i=>{const v=minVal+range*i/3;return `<line x1="${L}" y1="${y(v)}" x2="${W-R}" y2="${y(v)}" stroke="#263a55" stroke-dasharray="4 5"/><text x="${L-9}" y="${y(v)+4}" text-anchor="end" fill="#9eacc1" font-size="11">${fmt(v)}</text>`;}).join("");
+  const circles=usable.map((p,i)=>`<circle cx="${x(i)}" cy="${y(p.value)}" r="5" fill="#36a5ff" stroke="#d8edff" stroke-width="1.5" data-chart-index="${i}" style="cursor:pointer"/>`).join("");
+  const labels=usable.map((p,i)=>{if(usable.length>10&&i!==0&&i!==usable.length-1&&i%Math.ceil(usable.length/6)!==0)return "";return `<text x="${x(i)}" y="${H-12}" text-anchor="middle" fill="#9eacc1" font-size="10">${p.index}</text>`;}).join("");
+  $(containerId).innerHTML=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(stat)} performance by recorded game">${grid}<polyline points="${points}" fill="none" stroke="#36a5ff" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>${circles}${labels}</svg><div class="chart-legend"><span>Recorded game number →</span><span>${usable.length} data points</span></div>`;
+  const info=idx=>{const p=usable[idx];if(!p)return;if(infoId)$(infoId).textContent=`Game ${p.index}: ${fmt(p.value)} ${stat} · ${p.game} · ${p.date?new Date(p.date).toLocaleDateString():"Date unavailable"}`;};
+  $(containerId).querySelectorAll("[data-chart-index]").forEach(c=>{c.addEventListener("click",()=>info(Number(c.dataset.chartIndex)));c.addEventListener("mouseenter",()=>info(Number(c.dataset.chartIndex)));});
   info(usable.length-1);
 }
-
-function openPlayer(key) {
-  const p=uniquePlayers().find(x=>x.key===key);
-  if(!p) return;
+function openPlayer(key){
+  const p=uniquePlayers().find(x=>x.key===key);if(!p)return;
   activeProfileKey=key;
-  const totals=totalsFor(p);
-  const stats=Object.entries(totals).sort((a,b)=>a[0].localeCompare(b[0]));
-
-  $("modalName").textContent=p.name;
-  $("modalInfo").textContent=`${p.team} · ${p.sport} · Collected player records`;
-  $("profileGameCount").textContent=`${p.records.length} records collected`;
-
-  $("modalStats").innerHTML=stats.length?
-    `<div class="stat-grid">${stats.map(([s,v])=>`
-      <div class="stat-box"><small>${esc(s)} total</small><strong>${fmt(v)}</strong>
-      <small>Average: ${fmt(averageFor(p,s))}</small></div>`).join("")}</div>`:
-    '<div class="empty">No numeric statistics available for this player yet.</div>';
-
-  const chartStats=availableStats(p.sport).filter(s=>
-    p.records.some(r=>numeric((r.statistics||{})[s])!==null)
-  );
-  $("profileChartStat").innerHTML=chartStats.map(s=>
-    `<option value="${esc(s)}">${esc(s)}</option>`
-  ).join("");
-
+  const totals=totalsFor(p),stats=Object.entries(totals).sort((a,b)=>a[0].localeCompare(b[0]));
+  $("modalName").textContent=p.name;$("modalInfo").textContent=`${p.team} · ${p.sport} · Collected player records`;$("profileGameCount").textContent=`${p.records.length} records collected`;
+  $("modalStats").innerHTML=stats.length?`<div class="stat-grid">${stats.map(([s,v])=>`<div class="stat-box"><small>${esc(s)} total</small><strong>${fmt(v)}</strong><small>Average: ${fmt(averageFor(p,s))}</small></div>`).join("")}</div>`:'<div class="empty">No numeric statistics available for this player yet.</div>';
+  const chartStats=availableStats(p.sport).filter(s=>p.records.some(r=>numeric((r.statistics||{})[s])!==null));
+  $("profileChartStat").innerHTML=chartStats.map(s=>`<option value="${esc(s)}">${esc(s)}</option>`).join("");
   const records=[...p.records].sort((a,b)=>new Date(a.gameDate)-new Date(b.gameDate));
-  if(chartStats.length) {
-    drawChart("profileChart",records,chartStats[0],"profileChartInfo");
-  } else {
-    $("profileChart").innerHTML='<div class="empty">A performance chart will appear when numeric game statistics are available.</div>';
-    $("profileChartInfo").textContent="";
-  }
-
+  if(chartStats.length)drawChart("profileChart",records,chartStats[0],"profileChartInfo");
+  else{$("profileChart").innerHTML='<div class="empty">A performance chart will appear when numeric game statistics are available.</div>';$("profileChartInfo").textContent="";}
   let best=null;
-  for(const stat of chartStats) {
-    for(const r of records) {
-      const n=numeric((r.statistics||{})[stat]);
-      if(n!==null && (!best || n>best.value)) {
-        best={stat,value:n,game:r.gameName,date:r.gameDate};
-      }
-    }
-  }
-
-  $("bestPerformance").innerHTML=best?
-    `<div class="best-box"><strong>${esc(best.stat)} high: ${fmt(best.value)}</strong><br>
-      ${esc(best.game||"Game unavailable")} · ${best.date?esc(new Date(best.date).toLocaleDateString()):"Date unavailable"}
-    </div>`:
-    '<div class="empty">Best performance will appear once numeric stats are available.</div>';
-
+  for(const stat of chartStats)for(const r of records){const n=numeric((r.statistics||{})[stat]);if(n!==null&&(!best||n>best.value))best={stat,value:n,game:r.gameName,date:r.gameDate};}
+  $("bestPerformance").innerHTML=best?`<div class="best-box"><strong>${esc(best.stat)} high: ${fmt(best.value)}</strong><br>${esc(best.game||"Game unavailable")} · ${best.date?esc(new Date(best.date).toLocaleDateString()):"Date unavailable"}</div>`:'<div class="empty">Best performance will appear once numeric stats are available.</div>';
   const descending=[...records].reverse();
-  $("modalGames").innerHTML=descending.length?
-    `<table><thead><tr><th>Game</th><th>Date</th><th>Status</th><th>Statistics</th></tr></thead><tbody>
-    ${descending.map(r=>`<tr>
-      <td>${esc(r.gameName)}</td>
-      <td>${esc(r.gameDate?new Date(r.gameDate).toLocaleDateString():"—")}</td>
-      <td>${esc(r.gameStatus||"—")}</td>
-      <td>${Object.entries(r.statistics||{}).map(([s,v])=>`${esc(s)}: ${esc(v)}`).join(" · ")||"Not available"}</td>
-    </tr>`).join("")}</tbody></table>`:
-    '<div class="empty">No game records found.</div>';
-
+  $("modalGames").innerHTML=descending.length?`<table><thead><tr><th>Game</th><th>Date</th><th>Status</th><th>Statistics</th></tr></thead><tbody>${descending.map(r=>`<tr><td>${esc(r.gameName)}</td><td>${esc(r.gameDate?new Date(r.gameDate).toLocaleDateString():"—")}</td><td>${esc(r.gameStatus||"—")}</td><td>${Object.entries(r.statistics||{}).map(([s,v])=>`${esc(s)}: ${esc(v)}`).join(" · ")||"Not available"}</td></tr>`).join("")}</tbody></table>`:'<div class="empty">No game records found.</div>';
   $("playerModal").style.display="block";
 }
-
-function updateProfileChart() {
-  if(!activeProfileKey) return;
-  const p=uniquePlayers().find(x=>x.key===activeProfileKey);
-  if(!p) return;
+function updateProfileChart(){
+  if(!activeProfileKey)return;
+  const p=uniquePlayers().find(x=>x.key===activeProfileKey);if(!p)return;
   const records=[...p.records].sort((a,b)=>new Date(a.gameDate)-new Date(b.gameDate));
   drawChart("profileChart",records,$("profileChartStat").value,"profileChartInfo");
 }
-
-function renderAll() {
-  players=allPlayers();
-  renderCounters();
-  renderGames();
-
+function renderAll(){
+  players=allPlayers();renderCounters();renderGames();
   const leaderOptions=fillStatSelect("leaderStat",$("leaderSport").value);
-  if(!leaderOptions.length) $("leaderStat").innerHTML='<option value="">No stats yet</option>';
-  renderLeaderboard();
-  renderTeams();
-  populateComparePlayers();
-  renderPlayers();
+  if(!leaderOptions.length)$("leaderStat").innerHTML='<option value="">No stats yet</option>';
+  renderLeaderboard();renderTeams();populateComparePlayers();renderPlayers();
 }
-
-async function loadData() {
+async function loadData(){
   $("status").textContent="Loading sports data...";
-  let history=null;
-  let source="";
-
-  try {
+  let history=null,source="";
+  try{
     const response=await fetch("sports_history.json?t="+Date.now(),{cache:"no-store"});
-    if(response.ok) {
-      history=await response.json();
-      source="sports_history.json";
-    }
-  } catch(e) {}
-
-  if(!history||!history.games) {
-    try {
+    if(response.ok){history=await response.json();source="sports_history.json";}
+  }catch(e){}
+  if(!history||!history.games){
+    try{
       const response=await fetch("sports_data.json?t="+Date.now(),{cache:"no-store"});
-      if(response.ok) {
-        const data=await response.json();
-        history={games:{}};
-        for(const sport of Object.keys(data.sports||{})) {
-          for(const game of data.sports[sport]||[]) {
-            history.games[`${sport}_${game.game_id}`]=game;
-          }
-        }
-        history.last_updated=data.last_updated;
-        source="sports_data.json";
+      if(response.ok){
+        const data=await response.json();history={games:{}};
+        for(const sport of Object.keys(data.sports||[]))for(const game of data.sports[sport]||[])history.games[`${sport}_${game.game_id}`]=game;
+        history.last_updated=data.last_updated;source="sports_data.json";
       }
-    } catch(e) {}
+    }catch(e){}
   }
-
-  if(!history||!history.games) {
-    $("status").textContent="Could not load JSON data. Check that sports_history.json or sports_data.json is in the repository root.";
-    return;
-  }
-
+  if(!history||!history.games){$("status").textContent="Could not load JSON data. Check that sports_history.json or sports_data.json is in the repository root.";return;}
   games=Object.values(history.games).filter(g=>g&&g.sport);
-  lastUpdated=history.last_updated||null;
-  renderAll();
-
-  $("status").textContent=
-    `${games.length} games loaded · ${source} · Updated: ${lastUpdated||"Not provided"}`;
+  lastUpdated=history.last_updated||null;renderAll();
+  $("status").textContent=`${games.length} games loaded · ${source} · Updated: ${lastUpdated||"Not provided"}`;
 }
-
 $("refreshBtn").addEventListener("click",loadData);
 $("gameSearch").addEventListener("input",renderGames);
 $("sportFilter").addEventListener("change",renderGames);
-
-$("leaderSport").addEventListener("change",()=>{
-  fillStatSelect("leaderStat",$("leaderSport").value);
-  renderLeaderboard();
-});
+$("leaderSport").addEventListener("change",()=>{fillStatSelect("leaderStat",$("leaderSport").value);renderLeaderboard();});
 $("leaderStat").addEventListener("change",renderLeaderboard);
 $("teamSport").addEventListener("change",renderTeams);
 $("compareSport").addEventListener("change",populateComparePlayers);
@@ -697,24 +425,9 @@ $("playerTwo").addEventListener("change",renderComparison);
 $("playerSearch").addEventListener("input",renderPlayers);
 $("allPlayerSport").addEventListener("change",renderPlayers);
 $("profileChartStat").addEventListener("change",updateProfileChart);
-
-$("closeModal").addEventListener("click",()=>{
-  $("playerModal").style.display="none";
-  activeProfileKey=null;
-});
-$("playerModal").addEventListener("click",e=>{
-  if(e.target===$("playerModal")) {
-    $("playerModal").style.display="none";
-    activeProfileKey=null;
-  }
-});
-document.addEventListener("keydown",e=>{
-  if(e.key==="Escape") {
-    $("playerModal").style.display="none";
-    activeProfileKey=null;
-  }
-});
-
+$("closeModal").addEventListener("click",()=>{$("playerModal").style.display="none";activeProfileKey=null;});
+$("playerModal").addEventListener("click",e=>{if(e.target===$("playerModal")){$("playerModal").style.display="none";activeProfileKey=null;}});
+document.addEventListener("keydown",e=>{if(e.key==="Escape"){$("playerModal").style.display="none";activeProfileKey=null;}});
 loadData();
 setInterval(loadData,5*60*1000);
 </script>
