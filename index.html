@@ -21,12 +21,7 @@ header {
   border-bottom: 1px solid #334155;
 }
 
-.container {
-  max-width: 1100px;
-  margin: auto;
-  padding: 20px;
-}
-
+.container { max-width: 1100px; margin: auto; padding: 20px; }
 h1 { margin: 0 0 8px; font-size: 30px; }
 h2 { margin-top: 32px; }
 .muted { color: #94a3b8; }
@@ -38,7 +33,7 @@ h2 { margin-top: 32px; }
   margin: 22px 0;
 }
 
-.stat, .game, .leaderboard-card {
+.stat, .game, .leaderboard-card, .profile-card {
   background: #1e293b;
   border: 1px solid #334155;
   border-radius: 12px;
@@ -70,7 +65,6 @@ button, input, select {
 button { cursor: pointer; }
 button.active { background: #2563eb; border-color: #2563eb; }
 button:disabled { opacity: 0.6; cursor: wait; }
-
 input { flex: 1; min-width: 200px; }
 select { min-width: 160px; }
 
@@ -91,10 +85,7 @@ select { min-width: 160px; }
   border-bottom: 1px solid #334155;
 }
 
-.winner {
-  color: #4ade80;
-  font-weight: bold;
-}
+.winner { color: #4ade80; font-weight: bold; }
 
 .players { margin-top: 16px; }
 .players summary { cursor: pointer; color: #93c5fd; }
@@ -131,6 +122,51 @@ select { min-width: 160px; }
   font-weight: bold;
   color: #4ade80;
   text-align: right;
+}
+
+.player-link {
+  background: none;
+  border: none;
+  padding: 0;
+  color: #93c5fd;
+  text-align: left;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.profile-card { margin: 20px 0; }
+
+.profile-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.profile-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 10px;
+  margin: 18px 0;
+}
+
+.profile-stat {
+  background: #101827;
+  border-radius: 8px;
+  padding: 14px;
+}
+
+.profile-stat strong {
+  display: block;
+  font-size: 22px;
+  margin-top: 6px;
+}
+
+.profile-game {
+  border-top: 1px solid #334155;
+  padding: 14px 0;
 }
 
 .error { color: #fca5a5; }
@@ -175,10 +211,13 @@ hr {
     <div class="stat">NHL Games<strong id="nhlGames">0</strong></div>
   </section>
 
+  <h2>Player Profiles</h2>
+  <p class="muted">Select any player from a leaderboard or game history to explore their profile.</p>
+
+  <section id="playerProfile" hidden></section>
+
   <h2>Player Leaderboards</h2>
-  <p class="muted">
-    Rankings are calculated from player statistics collected in your historical game data.
-  </p>
+  <p class="muted">Rank players by their accumulated statistics.</p>
 
   <div class="controls">
     <select id="leaderboardSport">
@@ -222,6 +261,7 @@ hr {
 let allGames = [];
 let selectedSport = "ALL";
 let isLoading = false;
+let playerProfiles = [];
 
 function escapeHTML(value) {
   return String(value ?? "").replace(/[&<>"']/g, char => ({
@@ -241,7 +281,6 @@ function displayDate(value) {
 
 function normalizeGames(data) {
   if (Array.isArray(data)) return data;
-
   if (!data || typeof data !== "object") return [];
 
   if (data.games && typeof data.games === "object") {
@@ -288,29 +327,139 @@ function getNumericValue(value) {
   return null;
 }
 
+function buildPlayerProfiles() {
+  const profiles = new Map();
+
+  allGames.forEach(game => {
+    (game.players || []).forEach(player => {
+      const name = player.player || "Unknown Player";
+      const team = player.team || "";
+      const sport = game.sport || "Unknown";
+
+      const key = `${sport}|${name.toLowerCase()}|${team.toLowerCase()}`;
+
+      if (!profiles.has(key)) {
+        profiles.set(key, {
+          name,
+          team,
+          sport,
+          position: player.position || "",
+          appearances: 0,
+          totals: {},
+          history: []
+        });
+      }
+
+      const profile = profiles.get(key);
+      const stats = getPlayerStats(player);
+
+      profile.appearances++;
+
+      Object.entries(stats).forEach(([stat, value]) => {
+        const numeric = getNumericValue(value);
+
+        if (numeric !== null) {
+          profile.totals[stat] =
+            (profile.totals[stat] || 0) + numeric;
+        }
+      });
+
+      profile.history.push({
+        date: game.date,
+        game: game.game,
+        status: game.status,
+        stats: { ...stats }
+      });
+    });
+  });
+
+  playerProfiles = [...profiles.values()];
+}
+
+function openPlayerProfile(index) {
+  const player = playerProfiles[index];
+  if (!player) return;
+
+  const statCards = Object.entries(player.totals)
+    .sort((a, b) => a[0].localeCompare(b[0]))
+    .map(([stat, value]) => `
+      <div class="profile-stat">
+        <span class="muted">${escapeHTML(stat)}</span>
+        <strong>${Number(value.toFixed(2)).toLocaleString()}</strong>
+      </div>
+    `).join("");
+
+  const historyHTML = player.history.map(entry => {
+    const statText = Object.entries(entry.stats)
+      .map(([key, value]) =>
+        `${escapeHTML(key)}: ${escapeHTML(
+          typeof value === "object" ? JSON.stringify(value) : value
+        )}`
+      ).join(" · ");
+
+    return `
+      <div class="profile-game">
+        <strong>${escapeHTML(entry.game || "Game")}</strong>
+        <div class="muted">${displayDate(entry.date)}</div>
+        <div class="muted">${escapeHTML(entry.status || "")}</div>
+        <p>${statText || "No individual statistics available."}</p>
+      </div>
+    `;
+  }).join("");
+
+  const section = document.getElementById("playerProfile");
+  section.hidden = false;
+
+  section.innerHTML = `
+    <div class="profile-card">
+      <div class="profile-header">
+        <div>
+          <h2>${escapeHTML(player.name)}</h2>
+          <p class="muted">
+            ${escapeHTML(player.sport)}
+            ${player.team ? " · " + escapeHTML(player.team) : ""}
+            ${player.position ? " · " + escapeHTML(player.position) : ""}
+          </p>
+          <p class="muted">${player.appearances} collected game entries</p>
+        </div>
+        <button onclick="closePlayerProfile()">Close Profile ✕</button>
+      </div>
+
+      <h3>Accumulated Statistics</h3>
+      <div class="profile-stats">
+        ${statCards || '<p class="muted">No numeric statistics available yet.</p>'}
+      </div>
+
+      <h3>Game History</h3>
+      ${historyHTML || '<p class="muted">No game history available.</p>'}
+    </div>
+  `;
+
+  section.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+function closePlayerProfile() {
+  const section = document.getElementById("playerProfile");
+  section.hidden = true;
+  section.innerHTML = "";
+}
+
 function renderLeaderboard() {
   const sport = document.getElementById("leaderboardSport").value;
   const statSelect = document.getElementById("leaderboardStat");
   const leaderboard = document.getElementById("leaderboard");
 
-  const sportGames = allGames.filter(game =>
-    sport === "ALL" || game.sport === sport
+  const sportPlayers = playerProfiles.filter(player =>
+    sport === "ALL" || player.sport === sport
   );
 
   const availableStats = new Set();
 
-  sportGames.forEach(game => {
-    (game.players || []).forEach(player => {
-      Object.entries(getPlayerStats(player)).forEach(([key, value]) => {
-        if (getNumericValue(value) !== null) {
-          availableStats.add(key);
-        }
-      });
-    });
+  sportPlayers.forEach(player => {
+    Object.keys(player.totals).forEach(stat => availableStats.add(stat));
   });
 
   const previousStat = statSelect.value;
-
   statSelect.innerHTML = '<option value="">Select a statistic</option>';
 
   [...availableStats].sort().forEach(stat => {
@@ -332,36 +481,11 @@ function renderLeaderboard() {
     return;
   }
 
-  const rankings = new Map();
-
-  sportGames.forEach(game => {
-    (game.players || []).forEach(player => {
-      const playerName = player.player || "Unknown Player";
-      const team = player.team || "";
-      const value = getNumericValue(getPlayerStats(player)[selectedStat]);
-
-      if (value === null) return;
-
-      const key = `${game.sport}|${playerName.toLowerCase()}|${team.toLowerCase()}`;
-
-      if (!rankings.has(key)) {
-        rankings.set(key, {
-          name: playerName,
-          team: team,
-          sport: game.sport,
-          total: 0,
-          appearances: 0
-        });
-      }
-
-      const entry = rankings.get(key);
-      entry.total += value;
-      entry.appearances += 1;
-    });
-  });
-
-  const sorted = [...rankings.values()]
-    .sort((a, b) => b.total - a.total)
+  const sorted = sportPlayers
+    .filter(player => player.totals[selectedStat] !== undefined)
+    .sort((a, b) =>
+      b.totals[selectedStat] - a.totals[selectedStat]
+    )
     .slice(0, 10);
 
   if (!sorted.length) {
@@ -373,21 +497,27 @@ function renderLeaderboard() {
   leaderboard.innerHTML = `
     <div class="leaderboard-card">
       <h3>Top 10 · ${escapeHTML(selectedStat)}</h3>
-      ${sorted.map((player, index) => `
-        <div class="leader-row">
-          <div class="rank">#${index + 1}</div>
-          <div>
-            <div class="leader-name">${escapeHTML(player.name)}</div>
-            <div class="muted">
-              ${escapeHTML(player.team)} · ${escapeHTML(player.sport)}
-              · ${player.appearances} game entries
+      ${sorted.map(player => {
+        const index = playerProfiles.indexOf(player);
+
+        return `
+          <div class="leader-row">
+            <div class="rank">#${sorted.indexOf(player) + 1}</div>
+            <div>
+              <button class="player-link" data-profile="${index}">
+                ${escapeHTML(player.name)}
+              </button>
+              <div class="muted">
+                ${escapeHTML(player.team)} · ${escapeHTML(player.sport)}
+                · ${player.appearances} game entries
+              </div>
+            </div>
+            <div class="leader-value">
+              ${Number(player.totals[selectedStat].toFixed(2)).toLocaleString()}
             </div>
           </div>
-          <div class="leader-value">
-            ${Number(player.total.toFixed(2)).toLocaleString()}
-          </div>
-        </div>
-      `).join("")}
+        `;
+      }).join("")}
     </div>
   `;
 }
@@ -428,38 +558,36 @@ function renderGames() {
       </div>
     `).join("");
 
-    const playerHTML = players.length ? `
-      <details class="players">
-        <summary>View ${players.length} player entries</summary>
-        ${players.map(player => {
-          const stats = getPlayerStats(player);
+    const playerHTML = players.map(player => {
+      const stats = getPlayerStats(player);
+      const profileIndex = playerProfiles.findIndex(profile =>
+        profile.sport === game.sport &&
+        profile.name.toLowerCase() ===
+          String(player.player || "Unknown Player").toLowerCase() &&
+        profile.team.toLowerCase() ===
+          String(player.team || "").toLowerCase()
+      );
 
-          const statText = Object.entries(stats)
-            .map(([key, value]) =>
-              `${escapeHTML(key)}: ${escapeHTML(
-                typeof value === "object"
-                  ? JSON.stringify(value)
-                  : value
-              )}`
-            ).join(" · ");
+      const statText = Object.entries(stats)
+        .map(([key, value]) =>
+          `${escapeHTML(key)}: ${escapeHTML(
+            typeof value === "object" ? JSON.stringify(value) : value
+          )}`
+        ).join(" · ");
 
-          return `<div class="player">
-            <strong>${escapeHTML(player.player)}</strong>
-            ${player.position
-              ? ` · ${escapeHTML(player.position)}`
-              : ""}
-            ${player.team
-              ? ` · ${escapeHTML(player.team)}`
-              : ""}
-            <div class="muted">
-              ${statText || "No statistics available"}
-            </div>
-          </div>`;
-        }).join("")}
-      </details>
-    ` : `
-      <p class="muted">No player statistics available for this game.</p>
-    `;
+      return `
+        <div class="player">
+          <button class="player-link" data-profile="${profileIndex}">
+            ${escapeHTML(player.player || "Unknown Player")}
+          </button>
+          ${player.position ? " · " + escapeHTML(player.position) : ""}
+          ${player.team ? " · " + escapeHTML(player.team) : ""}
+          <div class="muted">
+            ${statText || "No statistics available"}
+          </div>
+        </div>
+      `;
+    }).join("");
 
     return `
       <article class="game">
@@ -473,7 +601,12 @@ function renderGames() {
           ${escapeHTML(game.status || "Status unavailable")}
         </div>
         ${teamHTML || '<p class="muted">No team information available.</p>'}
-        ${playerHTML}
+        ${players.length
+          ? `<details class="players">
+               <summary>View ${players.length} player entries</summary>
+               ${playerHTML}
+             </details>`
+          : '<p class="muted">No player statistics available for this game.</p>'}
       </article>
     `;
   }).join("");
@@ -485,9 +618,7 @@ async function fetchJSON(filename) {
     { cache: "no-store" }
   );
 
-  if (!response.ok) {
-    throw new Error(`Could not load ${filename}`);
-  }
+  if (!response.ok) throw new Error(`Could not load ${filename}`);
 
   return response.json();
 }
@@ -521,6 +652,8 @@ async function loadData() {
     allGames = games.sort((a, b) =>
       new Date(b.date || 0) - new Date(a.date || 0)
     );
+
+    buildPlayerProfiles();
 
     document.getElementById("totalGames").textContent =
       allGames.length;
@@ -565,6 +698,14 @@ async function loadData() {
   }
 }
 
+document.addEventListener("click", event => {
+  const button = event.target.closest("[data-profile]");
+  if (!button) return;
+
+  const index = Number(button.dataset.profile);
+  if (Number.isInteger(index)) openPlayerProfile(index);
+});
+
 document.querySelectorAll("button[data-sport]").forEach(button => {
   button.addEventListener("click", () => {
     selectedSport = button.dataset.sport;
@@ -593,7 +734,6 @@ document.getElementById("leaderboardStat").addEventListener(
 );
 
 loadData();
-
 setInterval(loadData, 5 * 60 * 1000);
 </script>
 
