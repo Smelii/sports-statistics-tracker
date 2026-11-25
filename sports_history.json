@@ -388593,7 +388593,3875 @@
                     }
                 }
             ]
+        },
+        "NBA_401909314": {
+            "sport": "NBA",
+            "game_id": "401909314",
+            "game": "Detroit Pistons at Orlando Magic",
+            "date": "2026-11-25T00:00Z",
+            "status": "Final",
+            "teams": [
+                {
+                    "team": "Orlando Magic",
+                    "score": "86",
+                    "winner": false,
+                    "home_away": "home",
+                    "record": [
+                        {
+                            "name": "overall",
+                            "abbreviation": "Game",
+                            "type": "total",
+                            "summary": "7-10"
+                        },
+                        {
+                            "name": "Home",
+                            "type": "home",
+                            "summary": "1-6"
+                        },
+                        {
+                            "name": "Road",
+                            "type": "road",
+                            "summary": "6-4"
+                        }
+                    ]
+                },
+                {
+                    "team": "Detroit Pistons",
+                    "score": "104",
+                    "winner": true,
+                    "home_away": "away",
+                    "record": [
+                        {
+                            "name": "overall",
+                            "abbreviation": "Game",
+                            "type": "total",
+                            "summary": "11-6"
+                        },
+                        {
+                            "name": "Home",
+                            "type": "home",
+                            "summary": "3-3"
+                        },
+                        {
+                            "name": "Road",
+                            "type": "road",
+                            "summary": "8-3"
+                        }
+                    ]
+                }
+            ],
+            "players": [
+                {
+                    "team": "Detroit Pistons",
+                    "player": "John Collins",
+                    "player_id": "3908845",
+                    "position": "F",
+                    "statistics": {
+                        "MIN": "26",
+                        "PTS": "12",
+                        "FG": "3-5",
+                        "3PT": "2-4",
+                        "FT": "4-5",
+                        "REB": "4",
+                        "AST": "0",
+                        "TO": "2",
+                        "STL": "0",
+                        "BLK": "2",
+                        "OREB": "0",
+                        "DREB": "4",
+                        "PF": "1",
+                        "+/-": "+20"
+                    }
+                },
+                {
+                    "team": "Detroit Pistons",
+                    "player": "Kevin Huerter",
+                    "player_id": "4066372",
+                    "position": "G",
+                    "statistics": {
+                        "MIN": "32",
+                        "PTS": "13",
+                        "FG": "6-10",
+                        "3PT": "1-3",
+                        "FT": "0-0",
+                        "REB": "6",
+                        "AST": "5",
+                        "TO": "1",
+                        "STL": "1",
+                        "BLK": "0",
+                        "OREB": "0",
+                        "DREB": "6",
+                        "PF": "1",
+                        "+/-": "+17"
+                    }
+                },
+                {
+                    "team": "Detroit Pistons",
+                    "player": "Isaiah Joe",
+                    "player_id": "4395702",
+                    "position": "G",
+                    "statistics": {
+                        "MIN": "30",
+                        "PTS": "21",
+                        "FG": "8-15",
+                        "3PT": "5-11",
+                        "FT": "0-0",
+                        "REB": "4",
+                        "AST": "0",
+                        "TO": "2",
+                        "STL": "1",
+                        "BLK": "0",
+                        "OREB": "0",
+                        "DREB": "4",
+                        "PF": "1",
+                        "+/-": "+16"
+                    }
+                },
+                {
+                    "team": "Detroit Pistons",
+                    "player": "Ausar Thompson",
+                    "player_id": "4684742",
+                    "position": "G",
+                    "statistics": {
+                        "MIN": "31",
+                        "PTS": "6",
+                        "FG": "3-3",
+                        "3PT": "0-0",
+                        "FT": "0-0",
+                        "REB": "10",
+                        "AST": "7",
+                        "TO": "2",
+                        "STL": "1",
+                        "BLK": "4",
+                        "OREB": "2",
+                        "DREB": "8",
+                        "PF": "1",
+                        "+/-": "+13"
+                    }
+                },
+                {
+                    "team": "Detroit Pistons",
+                    "player": "Daniss Jenkins",
+                    "player_id": "5107199",
+                    "position": "G",
+                    "statistics": {
+                        "MIN": "35",
+                        "PTS": "15",
+                        "FG": "6-16",
+                        "3PT": "1-6",
+                        "FT": "2-2",
+                        "REB": "4",
+                        "AST": "10",
+                        "TO": "5",
+                        "STL": "2",
+                        "BLK": "0",
+                        "OREB": "2",
+                        "DREB": "2",
+                        "PF": "4",
+                        "+/-": "+16"
+                    }
+                },
+                {
+                    "team": "Detroit Pistons",
+                    "player": "Paul Reed",
+                    "player_id": "4278562",
+                    "position": "F",
+                    "statistics": {
+                        "MIN": "22",
+                        "PTS": "9",
+                        "FG": "3-6",
+                        "3PT": "0-0",
+                        "FT": "3-5",
+                        "REB": "6",
+                        "AST": "1",
+                        "TO": "2",
+                        "STL": "2",
+                        "BLK": "0",
+                        "OREB": "2",
+                        "DREB": "4",
+                        "PF": "3",
+                        "+/-": "-2"
+                    }
+                },
+                {
+                    "team": "Detroit Pistons",
+                    "player": "Ronald Holland II",
+                    "player_id": "4683771",
+                    "position": "F",
+                    "statistics": {
+                        "MIN": "17",
+                        "PTS": "13",
+                        "FG": "5-9",
+                        "3PT": "2-5",
+                        "FT": "1-2",
+                        "REB": "3",
+                        "AST": "1",
+                        "TO": "0",
+                        "STL": "1",
+                        "BLK": "0",
+                        "OREB": "0",
+                        "DREB": "3",
+                        "PF": "2",
+                        "+/-": "+5"
+                    }
+                },
+                {
+                    "team": "Detroit Pistons",
+                    "player": "Javonte Green",
+                    "player_id": "2596112",
+                    "position": "G",
+                    "statistics": {
+                        "MIN": "27",
+                        "PTS": "6",
+                        "FG": "2-5",
+                        "3PT": "2-4",
+                        "FT": "0-0",
+                        "REB": "2",
+                        "AST": "1",
+                        "TO": "1",
+                        "STL": "4",
+                        "BLK": "0",
+                        "OREB": "0",
+                        "DREB": "2",
+                        "PF": "2",
+                        "+/-": "+10"
+                    }
+                },
+                {
+                    "team": "Detroit Pistons",
+                    "player": "Elijah Harkless",
+                    "player_id": "4397449",
+                    "position": "G",
+                    "statistics": {
+                        "MIN": "14",
+                        "PTS": "7",
+                        "FG": "2-9",
+                        "3PT": "2-3",
+                        "FT": "1-1",
+                        "REB": "1",
+                        "AST": "2",
+                        "TO": "1",
+                        "STL": "0",
+                        "BLK": "0",
+                        "OREB": "1",
+                        "DREB": "0",
+                        "PF": "1",
+                        "+/-": "+2"
+                    }
+                },
+                {
+                    "team": "Detroit Pistons",
+                    "player": "Chaz Lanier",
+                    "player_id": "4700852",
+                    "position": "G",
+                    "statistics": {
+                        "MIN": "7",
+                        "PTS": "2",
+                        "FG": "1-1",
+                        "3PT": "0-0",
+                        "FT": "0-0",
+                        "REB": "2",
+                        "AST": "0",
+                        "TO": "0",
+                        "STL": "0",
+                        "BLK": "0",
+                        "OREB": "1",
+                        "DREB": "1",
+                        "PF": "1",
+                        "+/-": "-7"
+                    }
+                },
+                {
+                    "team": "Detroit Pistons",
+                    "player": "Tolu Smith",
+                    "player_id": "4397882",
+                    "position": "F",
+                    "statistics": {}
+                },
+                {
+                    "team": "Detroit Pistons",
+                    "player": "Cade Cunningham",
+                    "player_id": "4432166",
+                    "position": "G",
+                    "statistics": {}
+                },
+                {
+                    "team": "Orlando Magic",
+                    "player": "Franz Wagner",
+                    "player_id": "4566434",
+                    "position": "F",
+                    "statistics": {
+                        "MIN": "38",
+                        "PTS": "20",
+                        "FG": "9-20",
+                        "3PT": "0-5",
+                        "FT": "2-2",
+                        "REB": "9",
+                        "AST": "6",
+                        "TO": "2",
+                        "STL": "0",
+                        "BLK": "1",
+                        "OREB": "1",
+                        "DREB": "8",
+                        "PF": "3",
+                        "+/-": "-18"
+                    }
+                },
+                {
+                    "team": "Orlando Magic",
+                    "player": "Wendell Carter Jr.",
+                    "player_id": "4277847",
+                    "position": "C",
+                    "statistics": {
+                        "MIN": "38",
+                        "PTS": "9",
+                        "FG": "3-10",
+                        "3PT": "1-3",
+                        "FT": "2-2",
+                        "REB": "13",
+                        "AST": "2",
+                        "TO": "1",
+                        "STL": "3",
+                        "BLK": "0",
+                        "OREB": "2",
+                        "DREB": "11",
+                        "PF": "4",
+                        "+/-": "-12"
+                    }
+                },
+                {
+                    "team": "Orlando Magic",
+                    "player": "Desmond Bane",
+                    "player_id": "4066320",
+                    "position": "G",
+                    "statistics": {
+                        "MIN": "34",
+                        "PTS": "21",
+                        "FG": "8-13",
+                        "3PT": "4-7",
+                        "FT": "1-1",
+                        "REB": "1",
+                        "AST": "5",
+                        "TO": "4",
+                        "STL": "1",
+                        "BLK": "0",
+                        "OREB": "0",
+                        "DREB": "1",
+                        "PF": "6",
+                        "+/-": "-20"
+                    }
+                },
+                {
+                    "team": "Orlando Magic",
+                    "player": "Jalen Suggs",
+                    "player_id": "4432165",
+                    "position": "G",
+                    "statistics": {
+                        "MIN": "33",
+                        "PTS": "4",
+                        "FG": "2-8",
+                        "3PT": "0-2",
+                        "FT": "0-0",
+                        "REB": "3",
+                        "AST": "5",
+                        "TO": "3",
+                        "STL": "2",
+                        "BLK": "0",
+                        "OREB": "0",
+                        "DREB": "3",
+                        "PF": "2",
+                        "+/-": "-15"
+                    }
+                },
+                {
+                    "team": "Orlando Magic",
+                    "player": "Anthony Black",
+                    "player_id": "4712849",
+                    "position": "G",
+                    "statistics": {
+                        "MIN": "28",
+                        "PTS": "5",
+                        "FG": "2-8",
+                        "3PT": "0-2",
+                        "FT": "1-3",
+                        "REB": "4",
+                        "AST": "2",
+                        "TO": "5",
+                        "STL": "0",
+                        "BLK": "1",
+                        "OREB": "2",
+                        "DREB": "2",
+                        "PF": "1",
+                        "+/-": "-22"
+                    }
+                },
+                {
+                    "team": "Orlando Magic",
+                    "player": "Jamal Cain",
+                    "player_id": "4278572",
+                    "position": "F",
+                    "statistics": {
+                        "MIN": "1",
+                        "PTS": "0",
+                        "FG": "0-0",
+                        "3PT": "0-0",
+                        "FT": "0-0",
+                        "REB": "0",
+                        "AST": "0",
+                        "TO": "0",
+                        "STL": "0",
+                        "BLK": "0",
+                        "OREB": "0",
+                        "DREB": "0",
+                        "PF": "0",
+                        "+/-": "0"
+                    }
+                },
+                {
+                    "team": "Orlando Magic",
+                    "player": "Tristan da Silva",
+                    "player_id": "4702382",
+                    "position": "F",
+                    "statistics": {
+                        "MIN": "33",
+                        "PTS": "16",
+                        "FG": "6-13",
+                        "3PT": "4-11",
+                        "FT": "0-0",
+                        "REB": "3",
+                        "AST": "1",
+                        "TO": "1",
+                        "STL": "0",
+                        "BLK": "0",
+                        "OREB": "1",
+                        "DREB": "2",
+                        "PF": "1",
+                        "+/-": "-1"
+                    }
+                },
+                {
+                    "team": "Orlando Magic",
+                    "player": "Goga Bitadze",
+                    "player_id": "4348700",
+                    "position": "C",
+                    "statistics": {
+                        "MIN": "13",
+                        "PTS": "2",
+                        "FG": "1-3",
+                        "3PT": "0-0",
+                        "FT": "0-0",
+                        "REB": "8",
+                        "AST": "1",
+                        "TO": "3",
+                        "STL": "0",
+                        "BLK": "1",
+                        "OREB": "4",
+                        "DREB": "4",
+                        "PF": "4",
+                        "+/-": "-1"
+                    }
+                },
+                {
+                    "team": "Orlando Magic",
+                    "player": "Jevon Carter",
+                    "player_id": "3133635",
+                    "position": "G",
+                    "statistics": {
+                        "MIN": "19",
+                        "PTS": "9",
+                        "FG": "3-6",
+                        "3PT": "3-6",
+                        "FT": "0-0",
+                        "REB": "0",
+                        "AST": "0",
+                        "TO": "1",
+                        "STL": "2",
+                        "BLK": "1",
+                        "OREB": "0",
+                        "DREB": "0",
+                        "PF": "3",
+                        "+/-": "-1"
+                    }
+                },
+                {
+                    "team": "Orlando Magic",
+                    "player": "Alex Morales",
+                    "player_id": "4593034",
+                    "position": "G",
+                    "statistics": {
+                        "MIN": "1",
+                        "PTS": "0",
+                        "FG": "0-2",
+                        "3PT": "0-0",
+                        "FT": "0-0",
+                        "REB": "0",
+                        "AST": "0",
+                        "TO": "0",
+                        "STL": "0",
+                        "BLK": "0",
+                        "OREB": "0",
+                        "DREB": "0",
+                        "PF": "0",
+                        "+/-": "0"
+                    }
+                },
+                {
+                    "team": "Orlando Magic",
+                    "player": "Jase Richardson",
+                    "player_id": "5239561",
+                    "position": "G",
+                    "statistics": {
+                        "MIN": "1",
+                        "PTS": "0",
+                        "FG": "0-0",
+                        "3PT": "0-0",
+                        "FT": "0-0",
+                        "REB": "0",
+                        "AST": "0",
+                        "TO": "0",
+                        "STL": "0",
+                        "BLK": "0",
+                        "OREB": "0",
+                        "DREB": "0",
+                        "PF": "0",
+                        "+/-": "0"
+                    }
+                },
+                {
+                    "team": "Orlando Magic",
+                    "player": "Nikola Vucevic",
+                    "player_id": "6478",
+                    "position": "C",
+                    "statistics": {}
+                }
+            ]
+        },
+        "NBA_401909315": {
+            "sport": "NBA",
+            "game_id": "401909315",
+            "game": "Boston Celtics at Washington Wizards",
+            "date": "2026-11-25T01:00Z",
+            "status": "Final",
+            "teams": [
+                {
+                    "team": "Washington Wizards",
+                    "score": "116",
+                    "winner": false,
+                    "home_away": "home",
+                    "record": [
+                        {
+                            "name": "overall",
+                            "abbreviation": "Game",
+                            "type": "total",
+                            "summary": "7-12"
+                        },
+                        {
+                            "name": "Home",
+                            "type": "home",
+                            "summary": "3-6"
+                        },
+                        {
+                            "name": "Road",
+                            "type": "road",
+                            "summary": "4-6"
+                        }
+                    ]
+                },
+                {
+                    "team": "Boston Celtics",
+                    "score": "131",
+                    "winner": true,
+                    "home_away": "away",
+                    "record": [
+                        {
+                            "name": "overall",
+                            "abbreviation": "Game",
+                            "type": "total",
+                            "summary": "12-6"
+                        },
+                        {
+                            "name": "Home",
+                            "type": "home",
+                            "summary": "6-1"
+                        },
+                        {
+                            "name": "Road",
+                            "type": "road",
+                            "summary": "6-5"
+                        }
+                    ]
+                }
+            ],
+            "players": [
+                {
+                    "team": "Boston Celtics",
+                    "player": "Paul George",
+                    "player_id": "4251",
+                    "position": "F",
+                    "statistics": {
+                        "MIN": "33",
+                        "PTS": "28",
+                        "FG": "11-20",
+                        "3PT": "6-9",
+                        "FT": "0-0",
+                        "REB": "4",
+                        "AST": "9",
+                        "TO": "1",
+                        "STL": "1",
+                        "BLK": "0",
+                        "OREB": "0",
+                        "DREB": "4",
+                        "PF": "5",
+                        "+/-": "+34"
+                    }
+                },
+                {
+                    "team": "Boston Celtics",
+                    "player": "Jayson Tatum",
+                    "player_id": "4065648",
+                    "position": "F",
+                    "statistics": {
+                        "MIN": "37",
+                        "PTS": "41",
+                        "FG": "13-25",
+                        "3PT": "6-15",
+                        "FT": "9-14",
+                        "REB": "6",
+                        "AST": "8",
+                        "TO": "3",
+                        "STL": "1",
+                        "BLK": "2",
+                        "OREB": "0",
+                        "DREB": "6",
+                        "PF": "3",
+                        "+/-": "-2"
+                    }
+                },
+                {
+                    "team": "Boston Celtics",
+                    "player": "Sam Hauser",
+                    "player_id": "4065804",
+                    "position": "F",
+                    "statistics": {
+                        "MIN": "22",
+                        "PTS": "4",
+                        "FG": "1-4",
+                        "3PT": "1-3",
+                        "FT": "1-2",
+                        "REB": "3",
+                        "AST": "1",
+                        "TO": "0",
+                        "STL": "1",
+                        "BLK": "1",
+                        "OREB": "1",
+                        "DREB": "2",
+                        "PF": "1",
+                        "+/-": "+20"
+                    }
+                },
+                {
+                    "team": "Boston Celtics",
+                    "player": "Neemias Queta",
+                    "player_id": "4397424",
+                    "position": "C",
+                    "statistics": {
+                        "MIN": "25",
+                        "PTS": "21",
+                        "FG": "9-11",
+                        "3PT": "0-0",
+                        "FT": "3-3",
+                        "REB": "5",
+                        "AST": "2",
+                        "TO": "2",
+                        "STL": "1",
+                        "BLK": "2",
+                        "OREB": "3",
+                        "DREB": "2",
+                        "PF": "4",
+                        "+/-": "+14"
+                    }
+                },
+                {
+                    "team": "Boston Celtics",
+                    "player": "Derrick White",
+                    "player_id": "3078576",
+                    "position": "G",
+                    "statistics": {
+                        "MIN": "30",
+                        "PTS": "6",
+                        "FG": "2-10",
+                        "3PT": "2-6",
+                        "FT": "0-0",
+                        "REB": "7",
+                        "AST": "5",
+                        "TO": "0",
+                        "STL": "1",
+                        "BLK": "0",
+                        "OREB": "0",
+                        "DREB": "7",
+                        "PF": "0",
+                        "+/-": "+32"
+                    }
+                },
+                {
+                    "team": "Boston Celtics",
+                    "player": "Chris Cenac Jr.",
+                    "player_id": "5142621",
+                    "position": "F",
+                    "statistics": {
+                        "MIN": "6",
+                        "PTS": "0",
+                        "FG": "0-1",
+                        "3PT": "0-0",
+                        "FT": "0-0",
+                        "REB": "2",
+                        "AST": "1",
+                        "TO": "0",
+                        "STL": "1",
+                        "BLK": "0",
+                        "OREB": "2",
+                        "DREB": "0",
+                        "PF": "1",
+                        "+/-": "-10"
+                    }
+                },
+                {
+                    "team": "Boston Celtics",
+                    "player": "Luka Garza",
+                    "player_id": "4277951",
+                    "position": "C",
+                    "statistics": {
+                        "MIN": "18",
+                        "PTS": "7",
+                        "FG": "3-3",
+                        "3PT": "1-1",
+                        "FT": "0-0",
+                        "REB": "4",
+                        "AST": "0",
+                        "TO": "1",
+                        "STL": "1",
+                        "BLK": "0",
+                        "OREB": "2",
+                        "DREB": "2",
+                        "PF": "4",
+                        "+/-": "+4"
+                    }
+                },
+                {
+                    "team": "Boston Celtics",
+                    "player": "Payton Pritchard",
+                    "player_id": "4066354",
+                    "position": "G",
+                    "statistics": {
+                        "MIN": "28",
+                        "PTS": "14",
+                        "FG": "4-14",
+                        "3PT": "4-11",
+                        "FT": "2-2",
+                        "REB": "4",
+                        "AST": "2",
+                        "TO": "2",
+                        "STL": "1",
+                        "BLK": "0",
+                        "OREB": "0",
+                        "DREB": "4",
+                        "PF": "2",
+                        "+/-": "-1"
+                    }
+                },
+                {
+                    "team": "Boston Celtics",
+                    "player": "Ron Harper Jr.",
+                    "player_id": "4397251",
+                    "position": "G",
+                    "statistics": {
+                        "MIN": "8",
+                        "PTS": "2",
+                        "FG": "1-3",
+                        "3PT": "0-2",
+                        "FT": "0-2",
+                        "REB": "0",
+                        "AST": "0",
+                        "TO": "0",
+                        "STL": "0",
+                        "BLK": "0",
+                        "OREB": "0",
+                        "DREB": "0",
+                        "PF": "0",
+                        "+/-": "-5"
+                    }
+                },
+                {
+                    "team": "Boston Celtics",
+                    "player": "Baylor Scheierman",
+                    "player_id": "4593841",
+                    "position": "G",
+                    "statistics": {
+                        "MIN": "19",
+                        "PTS": "8",
+                        "FG": "2-7",
+                        "3PT": "2-4",
+                        "FT": "2-2",
+                        "REB": "4",
+                        "AST": "1",
+                        "TO": "1",
+                        "STL": "0",
+                        "BLK": "0",
+                        "OREB": "2",
+                        "DREB": "2",
+                        "PF": "1",
+                        "+/-": "-5"
+                    }
+                },
+                {
+                    "team": "Boston Celtics",
+                    "player": "Jordan Walsh",
+                    "player_id": "4683689",
+                    "position": "G",
+                    "statistics": {
+                        "MIN": "5",
+                        "PTS": "0",
+                        "FG": "0-1",
+                        "3PT": "0-0",
+                        "FT": "0-0",
+                        "REB": "2",
+                        "AST": "1",
+                        "TO": "0",
+                        "STL": "0",
+                        "BLK": "0",
+                        "OREB": "1",
+                        "DREB": "1",
+                        "PF": "2",
+                        "+/-": "+2"
+                    }
+                },
+                {
+                    "team": "Boston Celtics",
+                    "player": "Hugo Gonzalez",
+                    "player_id": "5175647",
+                    "position": "G",
+                    "statistics": {
+                        "MIN": "9",
+                        "PTS": "0",
+                        "FG": "0-1",
+                        "3PT": "0-0",
+                        "FT": "0-0",
+                        "REB": "5",
+                        "AST": "0",
+                        "TO": "0",
+                        "STL": "0",
+                        "BLK": "1",
+                        "OREB": "2",
+                        "DREB": "3",
+                        "PF": "1",
+                        "+/-": "-8"
+                    }
+                },
+                {
+                    "team": "Boston Celtics",
+                    "player": "Mike Conley",
+                    "player_id": "3195",
+                    "position": "G",
+                    "statistics": {}
+                },
+                {
+                    "team": "Washington Wizards",
+                    "player": "Anthony Davis",
+                    "player_id": "6583",
+                    "position": "F",
+                    "statistics": {
+                        "MIN": "37",
+                        "PTS": "33",
+                        "FG": "12-21",
+                        "3PT": "1-3",
+                        "FT": "8-10",
+                        "REB": "13",
+                        "AST": "1",
+                        "TO": "2",
+                        "STL": "2",
+                        "BLK": "1",
+                        "OREB": "5",
+                        "DREB": "8",
+                        "PF": "3",
+                        "+/-": "-13"
+                    }
+                },
+                {
+                    "team": "Washington Wizards",
+                    "player": "AJ Dybantsa",
+                    "player_id": "5142718",
+                    "position": "F",
+                    "statistics": {
+                        "MIN": "41",
+                        "PTS": "20",
+                        "FG": "7-18",
+                        "3PT": "2-6",
+                        "FT": "4-5",
+                        "REB": "11",
+                        "AST": "7",
+                        "TO": "3",
+                        "STL": "0",
+                        "BLK": "0",
+                        "OREB": "3",
+                        "DREB": "8",
+                        "PF": "2",
+                        "+/-": "-16"
+                    }
+                },
+                {
+                    "team": "Washington Wizards",
+                    "player": "Kyshawn George",
+                    "player_id": "5174563",
+                    "position": "F",
+                    "statistics": {
+                        "MIN": "38",
+                        "PTS": "24",
+                        "FG": "9-20",
+                        "3PT": "4-12",
+                        "FT": "2-2",
+                        "REB": "9",
+                        "AST": "3",
+                        "TO": "1",
+                        "STL": "1",
+                        "BLK": "0",
+                        "OREB": "0",
+                        "DREB": "9",
+                        "PF": "1",
+                        "+/-": "-11"
+                    }
+                },
+                {
+                    "team": "Washington Wizards",
+                    "player": "Alex Sarr",
+                    "player_id": "5160992",
+                    "position": "C",
+                    "statistics": {
+                        "MIN": "24",
+                        "PTS": "7",
+                        "FG": "3-6",
+                        "3PT": "1-3",
+                        "FT": "0-0",
+                        "REB": "2",
+                        "AST": "0",
+                        "TO": "0",
+                        "STL": "0",
+                        "BLK": "1",
+                        "OREB": "1",
+                        "DREB": "1",
+                        "PF": "4",
+                        "+/-": "-10"
+                    }
+                },
+                {
+                    "team": "Washington Wizards",
+                    "player": "Trae Young",
+                    "player_id": "4277905",
+                    "position": "G",
+                    "statistics": {
+                        "MIN": "35",
+                        "PTS": "17",
+                        "FG": "4-9",
+                        "3PT": "1-2",
+                        "FT": "8-9",
+                        "REB": "0",
+                        "AST": "12",
+                        "TO": "1",
+                        "STL": "2",
+                        "BLK": "0",
+                        "OREB": "0",
+                        "DREB": "0",
+                        "PF": "3",
+                        "+/-": "-2"
+                    }
+                },
+                {
+                    "team": "Washington Wizards",
+                    "player": "Khris Middleton",
+                    "player_id": "6609",
+                    "position": "F",
+                    "statistics": {
+                        "MIN": "18",
+                        "PTS": "0",
+                        "FG": "0-2",
+                        "3PT": "0-1",
+                        "FT": "0-0",
+                        "REB": "5",
+                        "AST": "0",
+                        "TO": "2",
+                        "STL": "0",
+                        "BLK": "0",
+                        "OREB": "1",
+                        "DREB": "4",
+                        "PF": "2",
+                        "+/-": "-11"
+                    }
+                },
+                {
+                    "team": "Washington Wizards",
+                    "player": "Deandre Ayton",
+                    "player_id": "4278129",
+                    "position": "C",
+                    "statistics": {
+                        "MIN": "5",
+                        "PTS": "0",
+                        "FG": "0-1",
+                        "3PT": "0-0",
+                        "FT": "0-0",
+                        "REB": "2",
+                        "AST": "0",
+                        "TO": "1",
+                        "STL": "0",
+                        "BLK": "0",
+                        "OREB": "1",
+                        "DREB": "1",
+                        "PF": "1",
+                        "+/-": "+4"
+                    }
+                },
+                {
+                    "team": "Washington Wizards",
+                    "player": "Tre Mann",
+                    "player_id": "4432819",
+                    "position": "G",
+                    "statistics": {
+                        "MIN": "1",
+                        "PTS": "0",
+                        "FG": "0-0",
+                        "3PT": "0-0",
+                        "FT": "0-0",
+                        "REB": "0",
+                        "AST": "1",
+                        "TO": "0",
+                        "STL": "0",
+                        "BLK": "0",
+                        "OREB": "0",
+                        "DREB": "0",
+                        "PF": "0",
+                        "+/-": "0"
+                    }
+                },
+                {
+                    "team": "Washington Wizards",
+                    "player": "Bub Carrington",
+                    "player_id": "4845374",
+                    "position": "G",
+                    "statistics": {
+                        "MIN": "7",
+                        "PTS": "0",
+                        "FG": "0-1",
+                        "3PT": "0-1",
+                        "FT": "0-0",
+                        "REB": "2",
+                        "AST": "0",
+                        "TO": "0",
+                        "STL": "0",
+                        "BLK": "1",
+                        "OREB": "1",
+                        "DREB": "1",
+                        "PF": "0",
+                        "+/-": "+7"
+                    }
+                },
+                {
+                    "team": "Washington Wizards",
+                    "player": "Bilal Coulibaly",
+                    "player_id": "5104155",
+                    "position": "G",
+                    "statistics": {
+                        "MIN": "22",
+                        "PTS": "10",
+                        "FG": "4-7",
+                        "3PT": "2-5",
+                        "FT": "0-0",
+                        "REB": "3",
+                        "AST": "1",
+                        "TO": "1",
+                        "STL": "0",
+                        "BLK": "0",
+                        "OREB": "1",
+                        "DREB": "2",
+                        "PF": "5",
+                        "+/-": "-5"
+                    }
+                },
+                {
+                    "team": "Washington Wizards",
+                    "player": "Will Riley",
+                    "player_id": "5144126",
+                    "position": "G",
+                    "statistics": {
+                        "MIN": "5",
+                        "PTS": "5",
+                        "FG": "2-4",
+                        "3PT": "1-1",
+                        "FT": "0-0",
+                        "REB": "0",
+                        "AST": "0",
+                        "TO": "0",
+                        "STL": "0",
+                        "BLK": "0",
+                        "OREB": "0",
+                        "DREB": "0",
+                        "PF": "1",
+                        "+/-": "-3"
+                    }
+                },
+                {
+                    "team": "Washington Wizards",
+                    "player": "Tre Johnson",
+                    "player_id": "5238230",
+                    "position": "G",
+                    "statistics": {
+                        "MIN": "8",
+                        "PTS": "0",
+                        "FG": "0-3",
+                        "3PT": "0-2",
+                        "FT": "0-0",
+                        "REB": "1",
+                        "AST": "0",
+                        "TO": "2",
+                        "STL": "0",
+                        "BLK": "0",
+                        "OREB": "1",
+                        "DREB": "0",
+                        "PF": "1",
+                        "+/-": "-15"
+                    }
+                },
+                {
+                    "team": "Washington Wizards",
+                    "player": "Anthony Gill",
+                    "player_id": "2581184",
+                    "position": "F",
+                    "statistics": {}
+                }
+            ]
+        },
+        "NBA_401909316": {
+            "sport": "NBA",
+            "game_id": "401909316",
+            "game": "Dallas Mavericks at Denver Nuggets",
+            "date": "2026-11-25T03:00Z",
+            "status": "Final",
+            "teams": [
+                {
+                    "team": "Denver Nuggets",
+                    "score": "101",
+                    "winner": false,
+                    "home_away": "home",
+                    "record": [
+                        {
+                            "name": "overall",
+                            "abbreviation": "Game",
+                            "type": "total",
+                            "summary": "10-6"
+                        },
+                        {
+                            "name": "Home",
+                            "type": "home",
+                            "summary": "4-4"
+                        },
+                        {
+                            "name": "Road",
+                            "type": "road",
+                            "summary": "6-2"
+                        }
+                    ]
+                },
+                {
+                    "team": "Dallas Mavericks",
+                    "score": "120",
+                    "winner": true,
+                    "home_away": "away",
+                    "record": [
+                        {
+                            "name": "overall",
+                            "abbreviation": "Game",
+                            "type": "total",
+                            "summary": "11-7"
+                        },
+                        {
+                            "name": "Home",
+                            "type": "home",
+                            "summary": "7-2"
+                        },
+                        {
+                            "name": "Road",
+                            "type": "road",
+                            "summary": "4-5"
+                        }
+                    ]
+                }
+            ],
+            "players": [
+                {
+                    "team": "Dallas Mavericks",
+                    "player": "Caleb Martin",
+                    "player_id": "3138160",
+                    "position": "F",
+                    "statistics": {
+                        "MIN": "30",
+                        "PTS": "13",
+                        "FG": "5-8",
+                        "3PT": "3-6",
+                        "FT": "0-0",
+                        "REB": "4",
+                        "AST": "4",
+                        "TO": "1",
+                        "STL": "5",
+                        "BLK": "2",
+                        "OREB": "2",
+                        "DREB": "2",
+                        "PF": "3",
+                        "+/-": "+15"
+                    }
+                },
+                {
+                    "team": "Dallas Mavericks",
+                    "player": "Daniel Gafford",
+                    "player_id": "4278049",
+                    "position": "F",
+                    "statistics": {
+                        "MIN": "27",
+                        "PTS": "13",
+                        "FG": "6-8",
+                        "3PT": "0-0",
+                        "FT": "1-4",
+                        "REB": "6",
+                        "AST": "3",
+                        "TO": "2",
+                        "STL": "1",
+                        "BLK": "2",
+                        "OREB": "2",
+                        "DREB": "4",
+                        "PF": "1",
+                        "+/-": "-9"
+                    }
+                },
+                {
+                    "team": "Dallas Mavericks",
+                    "player": "Cooper Flagg",
+                    "player_id": "5041939",
+                    "position": "F",
+                    "statistics": {
+                        "MIN": "31",
+                        "PTS": "24",
+                        "FG": "8-17",
+                        "3PT": "1-4",
+                        "FT": "7-9",
+                        "REB": "6",
+                        "AST": "12",
+                        "TO": "1",
+                        "STL": "0",
+                        "BLK": "0",
+                        "OREB": "0",
+                        "DREB": "6",
+                        "PF": "4",
+                        "+/-": "+5"
+                    }
+                },
+                {
+                    "team": "Dallas Mavericks",
+                    "player": "Zaccharie Risacher",
+                    "player_id": "5211175",
+                    "position": "F",
+                    "statistics": {
+                        "MIN": "21",
+                        "PTS": "12",
+                        "FG": "5-8",
+                        "3PT": "1-2",
+                        "FT": "1-2",
+                        "REB": "6",
+                        "AST": "1",
+                        "TO": "1",
+                        "STL": "1",
+                        "BLK": "1",
+                        "OREB": "3",
+                        "DREB": "3",
+                        "PF": "2",
+                        "+/-": "-1"
+                    }
+                },
+                {
+                    "team": "Dallas Mavericks",
+                    "player": "Kyrie Irving",
+                    "player_id": "6442",
+                    "position": "G",
+                    "statistics": {
+                        "MIN": "34",
+                        "PTS": "11",
+                        "FG": "5-19",
+                        "3PT": "1-8",
+                        "FT": "0-0",
+                        "REB": "5",
+                        "AST": "6",
+                        "TO": "1",
+                        "STL": "1",
+                        "BLK": "1",
+                        "OREB": "1",
+                        "DREB": "4",
+                        "PF": "1",
+                        "+/-": "+21"
+                    }
+                },
+                {
+                    "team": "Dallas Mavericks",
+                    "player": "P.J. Washington",
+                    "player_id": "4278078",
+                    "position": "F",
+                    "statistics": {
+                        "MIN": "25",
+                        "PTS": "14",
+                        "FG": "6-11",
+                        "3PT": "1-3",
+                        "FT": "1-2",
+                        "REB": "6",
+                        "AST": "0",
+                        "TO": "0",
+                        "STL": "2",
+                        "BLK": "1",
+                        "OREB": "1",
+                        "DREB": "5",
+                        "PF": "2",
+                        "+/-": "+32"
+                    }
+                },
+                {
+                    "team": "Dallas Mavericks",
+                    "player": "Naji Marshall",
+                    "player_id": "4278594",
+                    "position": "F",
+                    "statistics": {
+                        "MIN": "22",
+                        "PTS": "14",
+                        "FG": "6-13",
+                        "3PT": "1-5",
+                        "FT": "1-1",
+                        "REB": "1",
+                        "AST": "2",
+                        "TO": "1",
+                        "STL": "1",
+                        "BLK": "0",
+                        "OREB": "0",
+                        "DREB": "1",
+                        "PF": "0",
+                        "+/-": "+23"
+                    }
+                },
+                {
+                    "team": "Dallas Mavericks",
+                    "player": "Santi Aldama",
+                    "player_id": "4593125",
+                    "position": "F",
+                    "statistics": {
+                        "MIN": "10",
+                        "PTS": "3",
+                        "FG": "1-2",
+                        "3PT": "1-2",
+                        "FT": "0-0",
+                        "REB": "1",
+                        "AST": "0",
+                        "TO": "1",
+                        "STL": "0",
+                        "BLK": "0",
+                        "OREB": "1",
+                        "DREB": "0",
+                        "PF": "0",
+                        "+/-": "0"
+                    }
+                },
+                {
+                    "team": "Dallas Mavericks",
+                    "player": "Morez Johnson Jr.",
+                    "player_id": "4873153",
+                    "position": "F",
+                    "statistics": {
+                        "MIN": "19",
+                        "PTS": "9",
+                        "FG": "4-7",
+                        "3PT": "1-4",
+                        "FT": "0-0",
+                        "REB": "10",
+                        "AST": "1",
+                        "TO": "2",
+                        "STL": "1",
+                        "BLK": "0",
+                        "OREB": "3",
+                        "DREB": "7",
+                        "PF": "4",
+                        "+/-": "+22"
+                    }
+                },
+                {
+                    "team": "Dallas Mavericks",
+                    "player": "Moussa Cisse",
+                    "player_id": "4701208",
+                    "position": "C",
+                    "statistics": {
+                        "MIN": "2",
+                        "PTS": "0",
+                        "FG": "0-0",
+                        "3PT": "0-0",
+                        "FT": "0-0",
+                        "REB": "0",
+                        "AST": "0",
+                        "TO": "0",
+                        "STL": "0",
+                        "BLK": "0",
+                        "OREB": "0",
+                        "DREB": "0",
+                        "PF": "0",
+                        "+/-": "-3"
+                    }
+                },
+                {
+                    "team": "Dallas Mavericks",
+                    "player": "Max Christie",
+                    "player_id": "4432582",
+                    "position": "G",
+                    "statistics": {
+                        "MIN": "4",
+                        "PTS": "2",
+                        "FG": "0-0",
+                        "3PT": "0-0",
+                        "FT": "2-2",
+                        "REB": "1",
+                        "AST": "0",
+                        "TO": "1",
+                        "STL": "0",
+                        "BLK": "0",
+                        "OREB": "1",
+                        "DREB": "0",
+                        "PF": "0",
+                        "+/-": "-7"
+                    }
+                },
+                {
+                    "team": "Dallas Mavericks",
+                    "player": "Walter Clayton Jr.",
+                    "player_id": "4896372",
+                    "position": "G",
+                    "statistics": {
+                        "MIN": "14",
+                        "PTS": "5",
+                        "FG": "2-5",
+                        "3PT": "1-3",
+                        "FT": "0-0",
+                        "REB": "2",
+                        "AST": "2",
+                        "TO": "1",
+                        "STL": "1",
+                        "BLK": "0",
+                        "OREB": "0",
+                        "DREB": "2",
+                        "PF": "0",
+                        "+/-": "-3"
+                    }
+                },
+                {
+                    "team": "Dallas Mavericks",
+                    "player": "Marcus Sasser",
+                    "player_id": "4432107",
+                    "position": "G",
+                    "statistics": {}
+                },
+                {
+                    "team": "Dallas Mavericks",
+                    "player": "Jett Howard",
+                    "player_id": "5105806",
+                    "position": "G",
+                    "statistics": {}
+                },
+                {
+                    "team": "Denver Nuggets",
+                    "player": "Aaron Gordon",
+                    "player_id": "3064290",
+                    "position": "F",
+                    "statistics": {
+                        "MIN": "24",
+                        "PTS": "1",
+                        "FG": "0-3",
+                        "3PT": "0-3",
+                        "FT": "1-2",
+                        "REB": "3",
+                        "AST": "3",
+                        "TO": "0",
+                        "STL": "0",
+                        "BLK": "1",
+                        "OREB": "1",
+                        "DREB": "2",
+                        "PF": "2",
+                        "+/-": "-6"
+                    }
+                },
+                {
+                    "team": "Denver Nuggets",
+                    "player": "Cameron Johnson",
+                    "player_id": "3138196",
+                    "position": "F",
+                    "statistics": {
+                        "MIN": "34",
+                        "PTS": "17",
+                        "FG": "5-15",
+                        "3PT": "4-11",
+                        "FT": "3-4",
+                        "REB": "5",
+                        "AST": "3",
+                        "TO": "2",
+                        "STL": "0",
+                        "BLK": "0",
+                        "OREB": "2",
+                        "DREB": "3",
+                        "PF": "3",
+                        "+/-": "-13"
+                    }
+                },
+                {
+                    "team": "Denver Nuggets",
+                    "player": "Nikola Jokic",
+                    "player_id": "3112335",
+                    "position": "C",
+                    "statistics": {
+                        "MIN": "33",
+                        "PTS": "18",
+                        "FG": "6-14",
+                        "3PT": "1-4",
+                        "FT": "5-5",
+                        "REB": "11",
+                        "AST": "5",
+                        "TO": "5",
+                        "STL": "1",
+                        "BLK": "0",
+                        "OREB": "2",
+                        "DREB": "9",
+                        "PF": "2",
+                        "+/-": "-8"
+                    }
+                },
+                {
+                    "team": "Denver Nuggets",
+                    "player": "Jamal Murray",
+                    "player_id": "3936299",
+                    "position": "G",
+                    "statistics": {
+                        "MIN": "36",
+                        "PTS": "20",
+                        "FG": "6-17",
+                        "3PT": "2-8",
+                        "FT": "6-6",
+                        "REB": "2",
+                        "AST": "3",
+                        "TO": "2",
+                        "STL": "0",
+                        "BLK": "2",
+                        "OREB": "0",
+                        "DREB": "2",
+                        "PF": "1",
+                        "+/-": "-10"
+                    }
+                },
+                {
+                    "team": "Denver Nuggets",
+                    "player": "Christian Braun",
+                    "player_id": "4431767",
+                    "position": "G",
+                    "statistics": {
+                        "MIN": "29",
+                        "PTS": "15",
+                        "FG": "5-8",
+                        "3PT": "3-6",
+                        "FT": "2-2",
+                        "REB": "2",
+                        "AST": "4",
+                        "TO": "1",
+                        "STL": "1",
+                        "BLK": "1",
+                        "OREB": "0",
+                        "DREB": "2",
+                        "PF": "5",
+                        "+/-": "-11"
+                    }
+                },
+                {
+                    "team": "Denver Nuggets",
+                    "player": "Alpha Diallo",
+                    "player_id": "4065813",
+                    "position": "F",
+                    "statistics": {
+                        "MIN": "3",
+                        "PTS": "2",
+                        "FG": "1-1",
+                        "3PT": "0-0",
+                        "FT": "0-0",
+                        "REB": "1",
+                        "AST": "1",
+                        "TO": "2",
+                        "STL": "0",
+                        "BLK": "0",
+                        "OREB": "0",
+                        "DREB": "1",
+                        "PF": "0",
+                        "+/-": "-3"
+                    }
+                },
+                {
+                    "team": "Denver Nuggets",
+                    "player": "Marvin Bagley III",
+                    "player_id": "4277848",
+                    "position": "F",
+                    "statistics": {
+                        "MIN": "12",
+                        "PTS": "9",
+                        "FG": "4-7",
+                        "3PT": "1-1",
+                        "FT": "0-0",
+                        "REB": "3",
+                        "AST": "0",
+                        "TO": "0",
+                        "STL": "0",
+                        "BLK": "0",
+                        "OREB": "3",
+                        "DREB": "0",
+                        "PF": "1",
+                        "+/-": "-8"
+                    }
+                },
+                {
+                    "team": "Denver Nuggets",
+                    "player": "Zeke Nnaji",
+                    "player_id": "4431690",
+                    "position": "F",
+                    "statistics": {
+                        "MIN": "3",
+                        "PTS": "1",
+                        "FG": "0-3",
+                        "3PT": "0-0",
+                        "FT": "1-2",
+                        "REB": "1",
+                        "AST": "0",
+                        "TO": "0",
+                        "STL": "1",
+                        "BLK": "0",
+                        "OREB": "1",
+                        "DREB": "0",
+                        "PF": "1",
+                        "+/-": "-3"
+                    }
+                },
+                {
+                    "team": "Denver Nuggets",
+                    "player": "DaRon Holmes II",
+                    "player_id": "4433607",
+                    "position": "F",
+                    "statistics": {
+                        "MIN": "3",
+                        "PTS": "0",
+                        "FG": "0-1",
+                        "3PT": "0-1",
+                        "FT": "0-0",
+                        "REB": "0",
+                        "AST": "0",
+                        "TO": "0",
+                        "STL": "1",
+                        "BLK": "0",
+                        "OREB": "0",
+                        "DREB": "0",
+                        "PF": "1",
+                        "+/-": "-3"
+                    }
+                },
+                {
+                    "team": "Denver Nuggets",
+                    "player": "Spencer Jones",
+                    "player_id": "4592427",
+                    "position": "F",
+                    "statistics": {
+                        "MIN": "22",
+                        "PTS": "7",
+                        "FG": "2-4",
+                        "3PT": "1-3",
+                        "FT": "2-2",
+                        "REB": "3",
+                        "AST": "1",
+                        "TO": "1",
+                        "STL": "1",
+                        "BLK": "0",
+                        "OREB": "0",
+                        "DREB": "3",
+                        "PF": "1",
+                        "+/-": "-16"
+                    }
+                },
+                {
+                    "team": "Denver Nuggets",
+                    "player": "Trevon Brazile",
+                    "player_id": "4698719",
+                    "position": "F",
+                    "statistics": {
+                        "MIN": "12",
+                        "PTS": "0",
+                        "FG": "0-0",
+                        "3PT": "0-0",
+                        "FT": "0-0",
+                        "REB": "3",
+                        "AST": "0",
+                        "TO": "1",
+                        "STL": "0",
+                        "BLK": "1",
+                        "OREB": "1",
+                        "DREB": "2",
+                        "PF": "1",
+                        "+/-": "-4"
+                    }
+                },
+                {
+                    "team": "Denver Nuggets",
+                    "player": "DeMar DeRozan",
+                    "player_id": "3978",
+                    "position": "G",
+                    "statistics": {
+                        "MIN": "17",
+                        "PTS": "9",
+                        "FG": "4-8",
+                        "3PT": "0-1",
+                        "FT": "1-1",
+                        "REB": "5",
+                        "AST": "1",
+                        "TO": "2",
+                        "STL": "1",
+                        "BLK": "0",
+                        "OREB": "1",
+                        "DREB": "4",
+                        "PF": "0",
+                        "+/-": "-1"
+                    }
+                },
+                {
+                    "team": "Denver Nuggets",
+                    "player": "Tyus Jones",
+                    "player_id": "3135046",
+                    "position": "G",
+                    "statistics": {
+                        "MIN": "12",
+                        "PTS": "2",
+                        "FG": "1-4",
+                        "3PT": "0-1",
+                        "FT": "0-0",
+                        "REB": "2",
+                        "AST": "1",
+                        "TO": "2",
+                        "STL": "0",
+                        "BLK": "1",
+                        "OREB": "1",
+                        "DREB": "1",
+                        "PF": "0",
+                        "+/-": "-9"
+                    }
+                },
+                {
+                    "team": "Denver Nuggets",
+                    "player": "Julian Strawther",
+                    "player_id": "4432181",
+                    "position": "G",
+                    "statistics": {}
+                }
+            ]
+        },
+        "NFL_401873079": {
+            "sport": "NFL",
+            "game_id": "401873079",
+            "game": "Green Bay Packers at Los Angeles Rams",
+            "date": "2026-11-26T01:00Z",
+            "status": "Wed, November 25th at 8:00 PM EST",
+            "teams": [
+                {
+                    "team": "Los Angeles Rams",
+                    "score": "0",
+                    "winner": false,
+                    "home_away": "home",
+                    "record": [
+                        {
+                            "name": "overall",
+                            "abbreviation": "Any",
+                            "type": "total",
+                            "summary": "6-4"
+                        },
+                        {
+                            "name": "Home",
+                            "type": "home",
+                            "summary": "2-3"
+                        },
+                        {
+                            "name": "Road",
+                            "type": "road",
+                            "summary": "4-1"
+                        }
+                    ]
+                },
+                {
+                    "team": "Green Bay Packers",
+                    "score": "0",
+                    "winner": false,
+                    "home_away": "away",
+                    "record": [
+                        {
+                            "name": "overall",
+                            "abbreviation": "Any",
+                            "type": "total",
+                            "summary": "6-4"
+                        },
+                        {
+                            "name": "Home",
+                            "type": "home",
+                            "summary": "3-2"
+                        },
+                        {
+                            "name": "Road",
+                            "type": "road",
+                            "summary": "3-2"
+                        }
+                    ]
+                }
+            ],
+            "players": []
+        },
+        "NFL_401873081": {
+            "sport": "NFL",
+            "game_id": "401873081",
+            "game": "Chicago Bears at Detroit Lions",
+            "date": "2026-11-26T18:00Z",
+            "status": "Thu, November 26th at 1:00 PM EST",
+            "teams": [
+                {
+                    "team": "Detroit Lions",
+                    "score": "0",
+                    "winner": false,
+                    "home_away": "home",
+                    "record": [
+                        {
+                            "name": "overall",
+                            "abbreviation": "Any",
+                            "type": "total",
+                            "summary": "8-2"
+                        },
+                        {
+                            "name": "Home",
+                            "type": "home",
+                            "summary": "6-0"
+                        },
+                        {
+                            "name": "Road",
+                            "type": "road",
+                            "summary": "2-2"
+                        }
+                    ]
+                },
+                {
+                    "team": "Chicago Bears",
+                    "score": "0",
+                    "winner": false,
+                    "home_away": "away",
+                    "record": [
+                        {
+                            "name": "overall",
+                            "abbreviation": "Any",
+                            "type": "total",
+                            "summary": "8-2"
+                        },
+                        {
+                            "name": "Home",
+                            "type": "home",
+                            "summary": "5-1"
+                        },
+                        {
+                            "name": "Road",
+                            "type": "road",
+                            "summary": "3-1"
+                        }
+                    ]
+                }
+            ],
+            "players": []
+        },
+        "NFL_401873080": {
+            "sport": "NFL",
+            "game_id": "401873080",
+            "game": "Philadelphia Eagles at Dallas Cowboys",
+            "date": "2026-11-26T21:30Z",
+            "status": "Thu, November 26th at 4:30 PM EST",
+            "teams": [
+                {
+                    "team": "Dallas Cowboys",
+                    "score": "0",
+                    "winner": false,
+                    "home_away": "home",
+                    "record": [
+                        {
+                            "name": "overall",
+                            "abbreviation": "Any",
+                            "type": "total",
+                            "summary": "5-6"
+                        },
+                        {
+                            "name": "Home",
+                            "type": "home",
+                            "summary": "2-4"
+                        },
+                        {
+                            "name": "Road",
+                            "type": "road",
+                            "summary": "3-2"
+                        }
+                    ]
+                },
+                {
+                    "team": "Philadelphia Eagles",
+                    "score": "0",
+                    "winner": false,
+                    "home_away": "away",
+                    "record": [
+                        {
+                            "name": "overall",
+                            "abbreviation": "Any",
+                            "type": "total",
+                            "summary": "3-7"
+                        },
+                        {
+                            "name": "Home",
+                            "type": "home",
+                            "summary": "2-4"
+                        },
+                        {
+                            "name": "Road",
+                            "type": "road",
+                            "summary": "1-3"
+                        }
+                    ]
+                }
+            ],
+            "players": []
+        },
+        "NFL_401873082": {
+            "sport": "NFL",
+            "game_id": "401873082",
+            "game": "Kansas City Chiefs at Buffalo Bills",
+            "date": "2026-11-27T01:20Z",
+            "status": "Thu, November 26th at 8:20 PM EST",
+            "teams": [
+                {
+                    "team": "Buffalo Bills",
+                    "score": "0",
+                    "winner": false,
+                    "home_away": "home",
+                    "record": [
+                        {
+                            "name": "overall",
+                            "abbreviation": "Any",
+                            "type": "total",
+                            "summary": "9-1"
+                        },
+                        {
+                            "name": "Home",
+                            "type": "home",
+                            "summary": "4-1"
+                        },
+                        {
+                            "name": "Road",
+                            "type": "road",
+                            "summary": "5-0"
+                        }
+                    ]
+                },
+                {
+                    "team": "Kansas City Chiefs",
+                    "score": "0",
+                    "winner": false,
+                    "home_away": "away",
+                    "record": [
+                        {
+                            "name": "overall",
+                            "abbreviation": "Any",
+                            "type": "total",
+                            "summary": "8-2"
+                        },
+                        {
+                            "name": "Home",
+                            "type": "home",
+                            "summary": "5-0"
+                        },
+                        {
+                            "name": "Road",
+                            "type": "road",
+                            "summary": "3-2"
+                        }
+                    ]
+                }
+            ],
+            "players": []
+        },
+        "NFL_401873083": {
+            "sport": "NFL",
+            "game_id": "401873083",
+            "game": "Denver Broncos at Pittsburgh Steelers",
+            "date": "2026-11-27T20:00Z",
+            "status": "Fri, November 27th at 3:00 PM EST",
+            "teams": [
+                {
+                    "team": "Pittsburgh Steelers",
+                    "score": "0",
+                    "winner": false,
+                    "home_away": "home",
+                    "record": [
+                        {
+                            "name": "overall",
+                            "abbreviation": "Any",
+                            "type": "total",
+                            "summary": "6-4"
+                        },
+                        {
+                            "name": "Home",
+                            "type": "home",
+                            "summary": "4-0"
+                        },
+                        {
+                            "name": "Road",
+                            "type": "road",
+                            "summary": "2-4"
+                        }
+                    ]
+                },
+                {
+                    "team": "Denver Broncos",
+                    "score": "0",
+                    "winner": false,
+                    "home_away": "away",
+                    "record": [
+                        {
+                            "name": "overall",
+                            "abbreviation": "Any",
+                            "type": "total",
+                            "summary": "8-2"
+                        },
+                        {
+                            "name": "Home",
+                            "type": "home",
+                            "summary": "5-0"
+                        },
+                        {
+                            "name": "Road",
+                            "type": "road",
+                            "summary": "3-2"
+                        }
+                    ]
+                }
+            ],
+            "players": []
+        },
+        "NFL_401873087": {
+            "sport": "NFL",
+            "game_id": "401873087",
+            "game": "New Orleans Saints at Cincinnati Bengals",
+            "date": "2026-11-29T18:00Z",
+            "status": "Sun, November 29th at 1:00 PM EST",
+            "teams": [
+                {
+                    "team": "Cincinnati Bengals",
+                    "score": "0",
+                    "winner": false,
+                    "home_away": "home",
+                    "record": [
+                        {
+                            "name": "overall",
+                            "abbreviation": "Any",
+                            "type": "total",
+                            "summary": "7-3"
+                        },
+                        {
+                            "name": "Home",
+                            "type": "home",
+                            "summary": "3-1"
+                        },
+                        {
+                            "name": "Road",
+                            "type": "road",
+                            "summary": "4-2"
+                        }
+                    ]
+                },
+                {
+                    "team": "New Orleans Saints",
+                    "score": "0",
+                    "winner": false,
+                    "home_away": "away",
+                    "record": [
+                        {
+                            "name": "overall",
+                            "abbreviation": "Any",
+                            "type": "total",
+                            "summary": "3-7"
+                        },
+                        {
+                            "name": "Home",
+                            "type": "home",
+                            "summary": "1-5"
+                        },
+                        {
+                            "name": "Road",
+                            "type": "road",
+                            "summary": "2-2"
+                        }
+                    ]
+                }
+            ],
+            "players": []
+        },
+        "NFL_401873088": {
+            "sport": "NFL",
+            "game_id": "401873088",
+            "game": "New York Giants at Indianapolis Colts",
+            "date": "2026-11-29T18:00Z",
+            "status": "Sun, November 29th at 1:00 PM EST",
+            "teams": [
+                {
+                    "team": "Indianapolis Colts",
+                    "score": "0",
+                    "winner": false,
+                    "home_away": "home",
+                    "record": [
+                        {
+                            "name": "overall",
+                            "abbreviation": "Any",
+                            "type": "total",
+                            "summary": "3-8"
+                        },
+                        {
+                            "name": "Home",
+                            "type": "home",
+                            "summary": "2-3"
+                        },
+                        {
+                            "name": "Road",
+                            "type": "road",
+                            "summary": "1-5"
+                        }
+                    ]
+                },
+                {
+                    "team": "New York Giants",
+                    "score": "0",
+                    "winner": false,
+                    "home_away": "away",
+                    "record": [
+                        {
+                            "name": "overall",
+                            "abbreviation": "Any",
+                            "type": "total",
+                            "summary": "6-3-1"
+                        },
+                        {
+                            "name": "Home",
+                            "type": "home",
+                            "summary": "4-2"
+                        },
+                        {
+                            "name": "Road",
+                            "type": "road",
+                            "summary": "2-1-1"
+                        }
+                    ]
+                }
+            ],
+            "players": []
+        },
+        "NFL_401873089": {
+            "sport": "NFL",
+            "game_id": "401873089",
+            "game": "New York Jets at Miami Dolphins",
+            "date": "2026-11-29T18:00Z",
+            "status": "Sun, November 29th at 1:00 PM EST",
+            "teams": [
+                {
+                    "team": "Miami Dolphins",
+                    "score": "0",
+                    "winner": false,
+                    "home_away": "home",
+                    "record": [
+                        {
+                            "name": "overall",
+                            "abbreviation": "Any",
+                            "type": "total",
+                            "summary": "1-9"
+                        },
+                        {
+                            "name": "Home",
+                            "type": "home",
+                            "summary": "0-4"
+                        },
+                        {
+                            "name": "Road",
+                            "type": "road",
+                            "summary": "1-5"
+                        }
+                    ]
+                },
+                {
+                    "team": "New York Jets",
+                    "score": "0",
+                    "winner": false,
+                    "home_away": "away",
+                    "record": [
+                        {
+                            "name": "overall",
+                            "abbreviation": "Any",
+                            "type": "total",
+                            "summary": "3-8"
+                        },
+                        {
+                            "name": "Home",
+                            "type": "home",
+                            "summary": "1-4"
+                        },
+                        {
+                            "name": "Road",
+                            "type": "road",
+                            "summary": "2-4"
+                        }
+                    ]
+                }
+            ],
+            "players": []
+        },
+        "NFL_401873084": {
+            "sport": "NFL",
+            "game_id": "401873084",
+            "game": "Atlanta Falcons at Minnesota Vikings",
+            "date": "2026-11-29T18:00Z",
+            "status": "Sun, November 29th at 1:00 PM EST",
+            "teams": [
+                {
+                    "team": "Minnesota Vikings",
+                    "score": "0",
+                    "winner": false,
+                    "home_away": "home",
+                    "record": [
+                        {
+                            "name": "overall",
+                            "abbreviation": "Any",
+                            "type": "total",
+                            "summary": "7-3"
+                        },
+                        {
+                            "name": "Home",
+                            "type": "home",
+                            "summary": "3-1"
+                        },
+                        {
+                            "name": "Road",
+                            "type": "road",
+                            "summary": "4-2"
+                        }
+                    ]
+                },
+                {
+                    "team": "Atlanta Falcons",
+                    "score": "0",
+                    "winner": false,
+                    "home_away": "away",
+                    "record": [
+                        {
+                            "name": "overall",
+                            "abbreviation": "Any",
+                            "type": "total",
+                            "summary": "3-7"
+                        },
+                        {
+                            "name": "Home",
+                            "type": "home",
+                            "summary": "1-5"
+                        },
+                        {
+                            "name": "Road",
+                            "type": "road",
+                            "summary": "2-2"
+                        }
+                    ]
+                }
+            ],
+            "players": []
+        },
+        "NFL_401873090": {
+            "sport": "NFL",
+            "game_id": "401873090",
+            "game": "Tennessee Titans at Jacksonville Jaguars",
+            "date": "2026-11-29T18:00Z",
+            "status": "Sun, November 29th at 1:00 PM EST",
+            "teams": [
+                {
+                    "team": "Jacksonville Jaguars",
+                    "score": "0",
+                    "winner": false,
+                    "home_away": "home",
+                    "record": [
+                        {
+                            "name": "overall",
+                            "abbreviation": "Any",
+                            "type": "total",
+                            "summary": "7-3"
+                        },
+                        {
+                            "name": "Home",
+                            "type": "home",
+                            "summary": "4-1"
+                        },
+                        {
+                            "name": "Road",
+                            "type": "road",
+                            "summary": "3-2"
+                        }
+                    ]
+                },
+                {
+                    "team": "Tennessee Titans",
+                    "score": "0",
+                    "winner": false,
+                    "home_away": "away",
+                    "record": [
+                        {
+                            "name": "overall",
+                            "abbreviation": "Any",
+                            "type": "total",
+                            "summary": "1-9"
+                        },
+                        {
+                            "name": "Home",
+                            "type": "home",
+                            "summary": "0-5"
+                        },
+                        {
+                            "name": "Road",
+                            "type": "road",
+                            "summary": "1-4"
+                        }
+                    ]
+                }
+            ],
+            "players": []
+        },
+        "NFL_401873085": {
+            "sport": "NFL",
+            "game_id": "401873085",
+            "game": "Baltimore Ravens at Houston Texans",
+            "date": "2026-11-29T18:00Z",
+            "status": "Sun, November 29th at 1:00 PM EST",
+            "teams": [
+                {
+                    "team": "Houston Texans",
+                    "score": "0",
+                    "winner": false,
+                    "home_away": "home",
+                    "record": [
+                        {
+                            "name": "overall",
+                            "abbreviation": "Any",
+                            "type": "total",
+                            "summary": "4-6"
+                        },
+                        {
+                            "name": "Home",
+                            "type": "home",
+                            "summary": "1-4"
+                        },
+                        {
+                            "name": "Road",
+                            "type": "road",
+                            "summary": "3-2"
+                        }
+                    ]
+                },
+                {
+                    "team": "Baltimore Ravens",
+                    "score": "0",
+                    "winner": false,
+                    "home_away": "away",
+                    "record": [
+                        {
+                            "name": "overall",
+                            "abbreviation": "Any",
+                            "type": "total",
+                            "summary": "4-7"
+                        },
+                        {
+                            "name": "Home",
+                            "type": "home",
+                            "summary": "1-4"
+                        },
+                        {
+                            "name": "Road",
+                            "type": "road",
+                            "summary": "3-3"
+                        }
+                    ]
+                }
+            ],
+            "players": []
+        },
+        "NFL_401873093": {
+            "sport": "NFL",
+            "game_id": "401873093",
+            "game": "New England Patriots at Los Angeles Chargers",
+            "date": "2026-11-29T21:05Z",
+            "status": "Sun, November 29th at 4:05 PM EST",
+            "teams": [
+                {
+                    "team": "Los Angeles Chargers",
+                    "score": "0",
+                    "winner": false,
+                    "home_away": "home",
+                    "record": [
+                        {
+                            "name": "overall",
+                            "abbreviation": "Any",
+                            "type": "total",
+                            "summary": "1-9"
+                        },
+                        {
+                            "name": "Home",
+                            "type": "home",
+                            "summary": "0-5"
+                        },
+                        {
+                            "name": "Road",
+                            "type": "road",
+                            "summary": "1-4"
+                        }
+                    ]
+                },
+                {
+                    "team": "New England Patriots",
+                    "score": "0",
+                    "winner": false,
+                    "home_away": "away",
+                    "record": [
+                        {
+                            "name": "overall",
+                            "abbreviation": "Any",
+                            "type": "total",
+                            "summary": "5-5"
+                        },
+                        {
+                            "name": "Home",
+                            "type": "home",
+                            "summary": "3-1"
+                        },
+                        {
+                            "name": "Road",
+                            "type": "road",
+                            "summary": "2-4"
+                        }
+                    ]
+                }
+            ],
+            "players": []
+        },
+        "NFL_401873092": {
+            "sport": "NFL",
+            "game_id": "401873092",
+            "game": "Washington Commanders at Arizona Cardinals",
+            "date": "2026-11-29T21:25Z",
+            "status": "Sun, November 29th at 4:25 PM EST",
+            "teams": [
+                {
+                    "team": "Arizona Cardinals",
+                    "score": "0",
+                    "winner": false,
+                    "home_away": "home",
+                    "record": [
+                        {
+                            "name": "overall",
+                            "abbreviation": "Any",
+                            "type": "total",
+                            "summary": "3-8"
+                        },
+                        {
+                            "name": "Home",
+                            "type": "home",
+                            "summary": "0-4"
+                        },
+                        {
+                            "name": "Road",
+                            "type": "road",
+                            "summary": "3-4"
+                        }
+                    ]
+                },
+                {
+                    "team": "Washington Commanders",
+                    "score": "0",
+                    "winner": false,
+                    "home_away": "away",
+                    "record": [
+                        {
+                            "name": "overall",
+                            "abbreviation": "Any",
+                            "type": "total",
+                            "summary": "4-5-1"
+                        },
+                        {
+                            "name": "Home",
+                            "type": "home",
+                            "summary": "3-2-1"
+                        },
+                        {
+                            "name": "Road",
+                            "type": "road",
+                            "summary": "1-3"
+                        }
+                    ]
+                }
+            ],
+            "players": []
+        },
+        "NFL_401873091": {
+            "sport": "NFL",
+            "game_id": "401873091",
+            "game": "Seattle Seahawks at San Francisco 49ers",
+            "date": "2026-11-29T21:25Z",
+            "status": "Sun, November 29th at 4:25 PM EST",
+            "teams": [
+                {
+                    "team": "San Francisco 49ers",
+                    "score": "0",
+                    "winner": false,
+                    "home_away": "home",
+                    "record": [
+                        {
+                            "name": "overall",
+                            "abbreviation": "Any",
+                            "type": "total",
+                            "summary": "9-1"
+                        },
+                        {
+                            "name": "Home",
+                            "type": "home",
+                            "summary": "6-0"
+                        },
+                        {
+                            "name": "Road",
+                            "type": "road",
+                            "summary": "3-1"
+                        }
+                    ]
+                },
+                {
+                    "team": "Seattle Seahawks",
+                    "score": "0",
+                    "winner": false,
+                    "home_away": "away",
+                    "record": [
+                        {
+                            "name": "overall",
+                            "abbreviation": "Any",
+                            "type": "total",
+                            "summary": "6-4"
+                        },
+                        {
+                            "name": "Home",
+                            "type": "home",
+                            "summary": "4-2"
+                        },
+                        {
+                            "name": "Road",
+                            "type": "road",
+                            "summary": "2-2"
+                        }
+                    ]
+                }
+            ],
+            "players": []
+        },
+        "NFL_401873086": {
+            "sport": "NFL",
+            "game_id": "401873086",
+            "game": "Las Vegas Raiders at Cleveland Browns",
+            "date": "2026-11-30T01:20Z",
+            "status": "Sun, November 29th at 8:20 PM EST",
+            "teams": [
+                {
+                    "team": "Cleveland Browns",
+                    "score": "0",
+                    "winner": false,
+                    "home_away": "home",
+                    "record": [
+                        {
+                            "name": "overall",
+                            "abbreviation": "Any",
+                            "type": "total",
+                            "summary": "6-4"
+                        },
+                        {
+                            "name": "Home",
+                            "type": "home",
+                            "summary": "4-0"
+                        },
+                        {
+                            "name": "Road",
+                            "type": "road",
+                            "summary": "2-4"
+                        }
+                    ]
+                },
+                {
+                    "team": "Las Vegas Raiders",
+                    "score": "0",
+                    "winner": false,
+                    "home_away": "away",
+                    "record": [
+                        {
+                            "name": "overall",
+                            "abbreviation": "Any",
+                            "type": "total",
+                            "summary": "4-7"
+                        },
+                        {
+                            "name": "Home",
+                            "type": "home",
+                            "summary": "1-4"
+                        },
+                        {
+                            "name": "Road",
+                            "type": "road",
+                            "summary": "3-3"
+                        }
+                    ]
+                }
+            ],
+            "players": []
+        },
+        "NFL_401873094": {
+            "sport": "NFL",
+            "game_id": "401873094",
+            "game": "Carolina Panthers at Tampa Bay Buccaneers",
+            "date": "2026-12-01T01:15Z",
+            "status": "Mon, November 30th at 8:15 PM EST",
+            "teams": [
+                {
+                    "team": "Tampa Bay Buccaneers",
+                    "score": "0",
+                    "winner": false,
+                    "home_away": "home",
+                    "record": [
+                        {
+                            "name": "overall",
+                            "abbreviation": "Any",
+                            "type": "total",
+                            "summary": "3-7"
+                        },
+                        {
+                            "name": "Home",
+                            "type": "home",
+                            "summary": "1-4"
+                        },
+                        {
+                            "name": "Road",
+                            "type": "road",
+                            "summary": "2-3"
+                        }
+                    ]
+                },
+                {
+                    "team": "Carolina Panthers",
+                    "score": "0",
+                    "winner": false,
+                    "home_away": "away",
+                    "record": [
+                        {
+                            "name": "overall",
+                            "abbreviation": "Any",
+                            "type": "total",
+                            "summary": "5-5"
+                        },
+                        {
+                            "name": "Home",
+                            "type": "home",
+                            "summary": "2-3"
+                        },
+                        {
+                            "name": "Road",
+                            "type": "road",
+                            "summary": "3-2"
+                        }
+                    ]
+                }
+            ],
+            "players": []
+        },
+        "NHL_401892780": {
+            "sport": "NHL",
+            "game_id": "401892780",
+            "game": "Vegas Golden Knights at Edmonton Oilers",
+            "date": "2026-11-25T01:00Z",
+            "status": "Final",
+            "teams": [
+                {
+                    "team": "Edmonton Oilers",
+                    "score": "3",
+                    "winner": false,
+                    "home_away": "home",
+                    "record": [
+                        {
+                            "name": "YTD",
+                            "abbreviation": "Game",
+                            "type": "ytd",
+                            "summary": "17-6-4"
+                        },
+                        {
+                            "name": "Home",
+                            "abbreviation": "HOME",
+                            "type": "home",
+                            "summary": "7-4-2"
+                        },
+                        {
+                            "name": "Road",
+                            "abbreviation": "AWAY",
+                            "type": "road",
+                            "summary": "10-2-2"
+                        }
+                    ]
+                },
+                {
+                    "team": "Vegas Golden Knights",
+                    "score": "5",
+                    "winner": true,
+                    "home_away": "away",
+                    "record": [
+                        {
+                            "name": "YTD",
+                            "abbreviation": "Game",
+                            "type": "ytd",
+                            "summary": "15-6-5"
+                        },
+                        {
+                            "name": "Home",
+                            "abbreviation": "HOME",
+                            "type": "home",
+                            "summary": "7-4-3"
+                        },
+                        {
+                            "name": "Road",
+                            "abbreviation": "AWAY",
+                            "type": "road",
+                            "summary": "8-2-2"
+                        }
+                    ]
+                }
+            ],
+            "players": [
+                {
+                    "team": "Vegas Golden Knights",
+                    "player": "Ivan Barbashev",
+                    "player_id": "3114985",
+                    "position": "LW",
+                    "statistics": {
+                        "BS": "1",
+                        "HT": "0",
+                        "TK": "0",
+                        "+/-": "-2",
+                        "TOI": "13:42",
+                        "PPTOI": "1:04",
+                        "SHTOI": "0:00",
+                        "ESTOI": "12:38",
+                        "SHFT": "17",
+                        "G": "0",
+                        "YTDG": "5",
+                        "A": "0",
+                        "S": "1",
+                        "SM": "0",
+                        "SOG": "0",
+                        "FW": "1",
+                        "FL": "1",
+                        "FO%": "50.0",
+                        "GV": "1",
+                        "PN": "0",
+                        "PIM": "0"
+                    }
+                },
+                {
+                    "team": "Vegas Golden Knights",
+                    "player": "Braeden Bowman",
+                    "player_id": "5272307",
+                    "position": "RW",
+                    "statistics": {
+                        "BS": "0",
+                        "HT": "1",
+                        "TK": "0",
+                        "+/-": "1",
+                        "TOI": "11:21",
+                        "PPTOI": "1:39",
+                        "SHTOI": "0:00",
+                        "ESTOI": "9:42",
+                        "SHFT": "18",
+                        "G": "0",
+                        "YTDG": "5",
+                        "A": "0",
+                        "S": "0",
+                        "SM": "1",
+                        "SOG": "0",
+                        "FW": "0",
+                        "FL": "0",
+                        "FO%": "0.0",
+                        "GV": "0",
+                        "PN": "0",
+                        "PIM": "0"
+                    }
+                },
+                {
+                    "team": "Vegas Golden Knights",
+                    "player": "Trevor Connelly",
+                    "player_id": "5216887",
+                    "position": "LW",
+                    "statistics": {
+                        "BS": "0",
+                        "HT": "1",
+                        "TK": "0",
+                        "+/-": "3",
+                        "TOI": "18:05",
+                        "PPTOI": "0:41",
+                        "SHTOI": "0:00",
+                        "ESTOI": "17:24",
+                        "SHFT": "26",
+                        "G": "2",
+                        "YTDG": "9",
+                        "A": "1",
+                        "S": "5",
+                        "SM": "2",
+                        "SOG": "0",
+                        "FW": "0",
+                        "FL": "0",
+                        "FO%": "0.0",
+                        "GV": "2",
+                        "PN": "1",
+                        "PIM": "2"
+                    }
+                },
+                {
+                    "team": "Vegas Golden Knights",
+                    "player": "Nic Dowd",
+                    "player_id": "3025616",
+                    "position": "C",
+                    "statistics": {
+                        "BS": "0",
+                        "HT": "6",
+                        "TK": "0",
+                        "+/-": "1",
+                        "TOI": "10:14",
+                        "PPTOI": "0:00",
+                        "SHTOI": "0:01",
+                        "ESTOI": "10:13",
+                        "SHFT": "15",
+                        "G": "1",
+                        "YTDG": "1",
+                        "A": "0",
+                        "S": "1",
+                        "SM": "0",
+                        "SOG": "0",
+                        "FW": "1",
+                        "FL": "0",
+                        "FO%": "100.0",
+                        "GV": "1",
+                        "PN": "0",
+                        "PIM": "0"
+                    }
+                },
+                {
+                    "team": "Vegas Golden Knights",
+                    "player": "Jack Eichel",
+                    "player_id": "3648002",
+                    "position": "C",
+                    "statistics": {
+                        "BS": "0",
+                        "HT": "0",
+                        "TK": "0",
+                        "+/-": "0",
+                        "TOI": "19:48",
+                        "PPTOI": "3:05",
+                        "SHTOI": "0:34",
+                        "ESTOI": "16:09",
+                        "SHFT": "25",
+                        "G": "2",
+                        "YTDG": "11",
+                        "A": "0",
+                        "S": "4",
+                        "SM": "0",
+                        "SOG": "0",
+                        "FW": "7",
+                        "FL": "7",
+                        "FO%": "50.0",
+                        "GV": "4",
+                        "PN": "0",
+                        "PIM": "0"
+                    }
+                },
+                {
+                    "team": "Vegas Golden Knights",
+                    "player": "Marc Gatcomb",
+                    "player_id": "5103547",
+                    "position": "C",
+                    "statistics": {
+                        "BS": "0",
+                        "HT": "0",
+                        "TK": "0",
+                        "+/-": "1",
+                        "TOI": "7:20",
+                        "PPTOI": "0:00",
+                        "SHTOI": "0:00",
+                        "ESTOI": "7:20",
+                        "SHFT": "13",
+                        "G": "0",
+                        "YTDG": "1",
+                        "A": "1",
+                        "S": "2",
+                        "SM": "0",
+                        "SOG": "0",
+                        "FW": "0",
+                        "FL": "0",
+                        "FO%": "0.0",
+                        "GV": "0",
+                        "PN": "0",
+                        "PIM": "0"
+                    }
+                },
+                {
+                    "team": "Vegas Golden Knights",
+                    "player": "Tomas Hertl",
+                    "player_id": "2976844",
+                    "position": "C",
+                    "statistics": {
+                        "BS": "0",
+                        "HT": "1",
+                        "TK": "0",
+                        "+/-": "-2",
+                        "TOI": "11:11",
+                        "PPTOI": "2:31",
+                        "SHTOI": "0:00",
+                        "ESTOI": "8:40",
+                        "SHFT": "15",
+                        "G": "0",
+                        "YTDG": "10",
+                        "A": "0",
+                        "S": "1",
+                        "SM": "0",
+                        "SOG": "0",
+                        "FW": "4",
+                        "FL": "2",
+                        "FO%": "66.7",
+                        "GV": "0",
+                        "PN": "0",
+                        "PIM": "0"
+                    }
+                },
+                {
+                    "team": "Vegas Golden Knights",
+                    "player": "Brett Howden",
+                    "player_id": "4024989",
+                    "position": "C",
+                    "statistics": {
+                        "BS": "1",
+                        "HT": "1",
+                        "TK": "1",
+                        "+/-": "-1",
+                        "TOI": "17:31",
+                        "PPTOI": "0:00",
+                        "SHTOI": "0:00",
+                        "ESTOI": "17:31",
+                        "SHFT": "23",
+                        "G": "0",
+                        "YTDG": "8",
+                        "A": "0",
+                        "S": "1",
+                        "SM": "1",
+                        "SOG": "0",
+                        "FW": "1",
+                        "FL": "0",
+                        "FO%": "100.0",
+                        "GV": "0",
+                        "PN": "0",
+                        "PIM": "0"
+                    }
+                },
+                {
+                    "team": "Vegas Golden Knights",
+                    "player": "William Karlsson",
+                    "player_id": "2563057",
+                    "position": "C",
+                    "statistics": {
+                        "BS": "1",
+                        "HT": "2",
+                        "TK": "3",
+                        "+/-": "2",
+                        "TOI": "21:52",
+                        "PPTOI": "1:45",
+                        "SHTOI": "1:25",
+                        "ESTOI": "18:42",
+                        "SHFT": "29",
+                        "G": "0",
+                        "YTDG": "6",
+                        "A": "1",
+                        "S": "1",
+                        "SM": "2",
+                        "SOG": "0",
+                        "FW": "10",
+                        "FL": "16",
+                        "FO%": "38.5",
+                        "GV": "2",
+                        "PN": "0",
+                        "PIM": "0"
+                    }
+                },
+                {
+                    "team": "Vegas Golden Knights",
+                    "player": "Mitch Marner",
+                    "player_id": "3899937",
+                    "position": "RW",
+                    "statistics": {
+                        "BS": "0",
+                        "HT": "0",
+                        "TK": "0",
+                        "+/-": "2",
+                        "TOI": "21:17",
+                        "PPTOI": "2:45",
+                        "SHTOI": "1:24",
+                        "ESTOI": "17:08",
+                        "SHFT": "27",
+                        "G": "0",
+                        "YTDG": "4",
+                        "A": "2",
+                        "S": "4",
+                        "SM": "1",
+                        "SOG": "0",
+                        "FW": "0",
+                        "FL": "2",
+                        "FO%": "0.0",
+                        "GV": "0",
+                        "PN": "0",
+                        "PIM": "0"
+                    }
+                },
+                {
+                    "team": "Vegas Golden Knights",
+                    "player": "Victor Olofsson",
+                    "player_id": "3151096",
+                    "position": "LW",
+                    "statistics": {
+                        "BS": "1",
+                        "HT": "0",
+                        "TK": "0",
+                        "+/-": "-2",
+                        "TOI": "12:58",
+                        "PPTOI": "2:38",
+                        "SHTOI": "0:00",
+                        "ESTOI": "10:20",
+                        "SHFT": "16",
+                        "G": "0",
+                        "YTDG": "8",
+                        "A": "1",
+                        "S": "1",
+                        "SM": "0",
+                        "SOG": "0",
+                        "FW": "0",
+                        "FL": "0",
+                        "FO%": "0.0",
+                        "GV": "0",
+                        "PN": "0",
+                        "PIM": "0"
+                    }
+                },
+                {
+                    "team": "Vegas Golden Knights",
+                    "player": "Mark Stone",
+                    "player_id": "5545",
+                    "position": "RW",
+                    "statistics": {
+                        "BS": "0",
+                        "HT": "0",
+                        "TK": "0",
+                        "+/-": "0",
+                        "TOI": "18:17",
+                        "PPTOI": "2:38",
+                        "SHTOI": "0:36",
+                        "ESTOI": "15:03",
+                        "SHFT": "25",
+                        "G": "0",
+                        "YTDG": "11",
+                        "A": "0",
+                        "S": "1",
+                        "SM": "1",
+                        "SOG": "0",
+                        "FW": "0",
+                        "FL": "0",
+                        "FO%": "0.0",
+                        "GV": "2",
+                        "PN": "0",
+                        "PIM": "0"
+                    }
+                },
+                {
+                    "team": "Vegas Golden Knights",
+                    "player": "Rasmus Andersson",
+                    "player_id": "3904186",
+                    "position": "D",
+                    "statistics": {
+                        "BS": "3",
+                        "HT": "0",
+                        "TK": "0",
+                        "+/-": "-1",
+                        "TOI": "19:21",
+                        "PPTOI": "1:16",
+                        "SHTOI": "0:21",
+                        "ESTOI": "17:44",
+                        "SHFT": "30",
+                        "G": "0",
+                        "YTDG": "3",
+                        "A": "0",
+                        "S": "1",
+                        "SM": "1",
+                        "SOG": "0",
+                        "FW": "0",
+                        "FL": "0",
+                        "FO%": "0.0",
+                        "GV": "0",
+                        "PN": "0",
+                        "PIM": "0"
+                    }
+                },
+                {
+                    "team": "Vegas Golden Knights",
+                    "player": "Dylan Coghlan",
+                    "player_id": "4063606",
+                    "position": "D",
+                    "statistics": {
+                        "BS": "0",
+                        "HT": "0",
+                        "TK": "0",
+                        "+/-": "0",
+                        "TOI": "10:57",
+                        "PPTOI": "0:00",
+                        "SHTOI": "0:00",
+                        "ESTOI": "10:57",
+                        "SHFT": "17",
+                        "G": "0",
+                        "YTDG": "0",
+                        "A": "0",
+                        "S": "1",
+                        "SM": "0",
+                        "SOG": "0",
+                        "FW": "0",
+                        "FL": "0",
+                        "FO%": "0.0",
+                        "GV": "0",
+                        "PN": "0",
+                        "PIM": "0"
+                    }
+                },
+                {
+                    "team": "Vegas Golden Knights",
+                    "player": "Jeremy Lauzon",
+                    "player_id": "3904185",
+                    "position": "D",
+                    "statistics": {
+                        "BS": "5",
+                        "HT": "5",
+                        "TK": "1",
+                        "+/-": "1",
+                        "TOI": "20:02",
+                        "PPTOI": "0:00",
+                        "SHTOI": "1:39",
+                        "ESTOI": "18:23",
+                        "SHFT": "29",
+                        "G": "0",
+                        "YTDG": "1",
+                        "A": "0",
+                        "S": "1",
+                        "SM": "0",
+                        "SOG": "0",
+                        "FW": "0",
+                        "FL": "0",
+                        "FO%": "0.0",
+                        "GV": "1",
+                        "PN": "0",
+                        "PIM": "0"
+                    }
+                },
+                {
+                    "team": "Vegas Golden Knights",
+                    "player": "Brayden McNabb",
+                    "player_id": "5202",
+                    "position": "D",
+                    "statistics": {
+                        "BS": "2",
+                        "HT": "3",
+                        "TK": "0",
+                        "+/-": "1",
+                        "TOI": "25:31",
+                        "PPTOI": "0:00",
+                        "SHTOI": "1:39",
+                        "ESTOI": "23:52",
+                        "SHFT": "29",
+                        "G": "0",
+                        "YTDG": "0",
+                        "A": "0",
+                        "S": "2",
+                        "SM": "1",
+                        "SOG": "0",
+                        "FW": "0",
+                        "FL": "0",
+                        "FO%": "0.0",
+                        "GV": "3",
+                        "PN": "0",
+                        "PIM": "0"
+                    }
+                },
+                {
+                    "team": "Vegas Golden Knights",
+                    "player": "Shea Theodore",
+                    "player_id": "3042055",
+                    "position": "D",
+                    "statistics": {
+                        "BS": "5",
+                        "HT": "0",
+                        "TK": "0",
+                        "+/-": "1",
+                        "TOI": "23:52",
+                        "PPTOI": "1:38",
+                        "SHTOI": "0:00",
+                        "ESTOI": "22:14",
+                        "SHFT": "29",
+                        "G": "0",
+                        "YTDG": "2",
+                        "A": "1",
+                        "S": "0",
+                        "SM": "1",
+                        "SOG": "0",
+                        "FW": "0",
+                        "FL": "0",
+                        "FO%": "0.0",
+                        "GV": "2",
+                        "PN": "0",
+                        "PIM": "0"
+                    }
+                },
+                {
+                    "team": "Vegas Golden Knights",
+                    "player": "Parker Wotherspoon",
+                    "player_id": "3942638",
+                    "position": "D",
+                    "statistics": {
+                        "BS": "0",
+                        "HT": "1",
+                        "TK": "0",
+                        "+/-": "0",
+                        "TOI": "14:45",
+                        "PPTOI": "0:00",
+                        "SHTOI": "0:21",
+                        "ESTOI": "14:24",
+                        "SHFT": "24",
+                        "G": "0",
+                        "YTDG": "0",
+                        "A": "0",
+                        "S": "0",
+                        "SM": "0",
+                        "SOG": "0",
+                        "FW": "0",
+                        "FL": "0",
+                        "FO%": "0.0",
+                        "GV": "2",
+                        "PN": "0",
+                        "PIM": "0"
+                    }
+                },
+                {
+                    "team": "Vegas Golden Knights",
+                    "player": "Carter Hart",
+                    "player_id": "4064582",
+                    "position": "G",
+                    "statistics": {
+                        "GA": "3",
+                        "SA": "24",
+                        "SOS": "0",
+                        "SOSA": "0",
+                        "SV": "21",
+                        "SV%": ".875",
+                        "ESSV": "19",
+                        "PPSV": "2",
+                        "SHSV": "0",
+                        "TOI": "59:37",
+                        "YTDG": "0",
+                        "PIM": "0"
+                    }
+                },
+                {
+                    "team": "Vegas Golden Knights",
+                    "player": "Adin Hill",
+                    "player_id": "3939714",
+                    "position": "G",
+                    "statistics": {
+                        "GA": "0",
+                        "SA": "0",
+                        "SOS": "0",
+                        "SOSA": "0",
+                        "SV": "0",
+                        "SV%": ".000",
+                        "ESSV": "0",
+                        "PPSV": "0",
+                        "SHSV": "0",
+                        "TOI": "0:19",
+                        "YTDG": "0",
+                        "PIM": "0"
+                    }
+                },
+                {
+                    "team": "Edmonton Oilers",
+                    "player": "Colton Dach",
+                    "player_id": "4874940",
+                    "position": "C",
+                    "statistics": {
+                        "BS": "0",
+                        "HT": "4",
+                        "TK": "0",
+                        "+/-": "1",
+                        "TOI": "12:41",
+                        "PPTOI": "0:00",
+                        "SHTOI": "0:00",
+                        "ESTOI": "12:41",
+                        "SHFT": "21",
+                        "G": "1",
+                        "YTDG": "6",
+                        "A": "0",
+                        "S": "6",
+                        "SM": "0",
+                        "SOG": "0",
+                        "FW": "0",
+                        "FL": "0",
+                        "FO%": "0.0",
+                        "GV": "1",
+                        "PN": "1",
+                        "PIM": "2"
+                    }
+                },
+                {
+                    "team": "Edmonton Oilers",
+                    "player": "Jason Dickinson",
+                    "player_id": "3042062",
+                    "position": "C",
+                    "statistics": {
+                        "BS": "0",
+                        "HT": "1",
+                        "TK": "0",
+                        "+/-": "0",
+                        "TOI": "12:15",
+                        "PPTOI": "0:00",
+                        "SHTOI": "0:59",
+                        "ESTOI": "11:16",
+                        "SHFT": "22",
+                        "G": "0",
+                        "YTDG": "2",
+                        "A": "0",
+                        "S": "2",
+                        "SM": "0",
+                        "SOG": "0",
+                        "FW": "5",
+                        "FL": "2",
+                        "FO%": "71.4",
+                        "GV": "0",
+                        "PN": "0",
+                        "PIM": "0"
+                    }
+                },
+                {
+                    "team": "Edmonton Oilers",
+                    "player": "Leon Draisaitl",
+                    "player_id": "3114727",
+                    "position": "C",
+                    "statistics": {
+                        "BS": "1",
+                        "HT": "0",
+                        "TK": "1",
+                        "+/-": "-2",
+                        "TOI": "23:53",
+                        "PPTOI": "2:00",
+                        "SHTOI": "0:34",
+                        "ESTOI": "21:19",
+                        "SHFT": "27",
+                        "G": "0",
+                        "YTDG": "23",
+                        "A": "0",
+                        "S": "1",
+                        "SM": "1",
+                        "SOG": "0",
+                        "FW": "9",
+                        "FL": "10",
+                        "FO%": "47.4",
+                        "GV": "3",
+                        "PN": "0",
+                        "PIM": "0"
+                    }
+                },
+                {
+                    "team": "Edmonton Oilers",
+                    "player": "Alex Formenton",
+                    "player_id": "4233882",
+                    "position": "LW",
+                    "statistics": {
+                        "BS": "2",
+                        "HT": "4",
+                        "TK": "0",
+                        "+/-": "-1",
+                        "TOI": "11:48",
+                        "PPTOI": "0:00",
+                        "SHTOI": "2:00",
+                        "ESTOI": "9:48",
+                        "SHFT": "21",
+                        "G": "0",
+                        "YTDG": "2",
+                        "A": "0",
+                        "S": "0",
+                        "SM": "0",
+                        "SOG": "0",
+                        "FW": "0",
+                        "FL": "0",
+                        "FO%": "0.0",
+                        "GV": "0",
+                        "PN": "0",
+                        "PIM": "0"
+                    }
+                },
+                {
+                    "team": "Edmonton Oilers",
+                    "player": "Trent Frederic",
+                    "player_id": "4024997",
+                    "position": "C",
+                    "statistics": {
+                        "BS": "0",
+                        "HT": "1",
+                        "TK": "0",
+                        "+/-": "0",
+                        "TOI": "6:50",
+                        "PPTOI": "0:00",
+                        "SHTOI": "0:00",
+                        "ESTOI": "6:50",
+                        "SHFT": "12",
+                        "G": "0",
+                        "YTDG": "1",
+                        "A": "0",
+                        "S": "0",
+                        "SM": "0",
+                        "SOG": "0",
+                        "FW": "0",
+                        "FL": "0",
+                        "FO%": "0.0",
+                        "GV": "0",
+                        "PN": "0",
+                        "PIM": "0"
+                    }
+                },
+                {
+                    "team": "Edmonton Oilers",
+                    "player": "Filip Hallander",
+                    "player_id": "4588331",
+                    "position": "C",
+                    "statistics": {
+                        "BS": "1",
+                        "HT": "1",
+                        "TK": "0",
+                        "+/-": "0",
+                        "TOI": "3:06",
+                        "PPTOI": "0:00",
+                        "SHTOI": "0:00",
+                        "ESTOI": "3:06",
+                        "SHFT": "5",
+                        "G": "0",
+                        "YTDG": "2",
+                        "A": "0",
+                        "S": "0",
+                        "SM": "0",
+                        "SOG": "0",
+                        "FW": "0",
+                        "FL": "0",
+                        "FO%": "0.0",
+                        "GV": "0",
+                        "PN": "0",
+                        "PIM": "0"
+                    }
+                },
+                {
+                    "team": "Edmonton Oilers",
+                    "player": "Mathieu Joseph",
+                    "player_id": "3941965",
+                    "position": "RW",
+                    "statistics": {
+                        "BS": "0",
+                        "HT": "5",
+                        "TK": "0",
+                        "+/-": "1",
+                        "TOI": "15:22",
+                        "PPTOI": "0:00",
+                        "SHTOI": "1:30",
+                        "ESTOI": "13:52",
+                        "SHFT": "23",
+                        "G": "0",
+                        "YTDG": "4",
+                        "A": "1",
+                        "S": "0",
+                        "SM": "0",
+                        "SOG": "0",
+                        "FW": "0",
+                        "FL": "0",
+                        "FO%": "0.0",
+                        "GV": "1",
+                        "PN": "0",
+                        "PIM": "0"
+                    }
+                },
+                {
+                    "team": "Edmonton Oilers",
+                    "player": "Kasperi Kapanen",
+                    "player_id": "3114775",
+                    "position": "RW",
+                    "statistics": {
+                        "BS": "0",
+                        "HT": "2",
+                        "TK": "0",
+                        "+/-": "0",
+                        "TOI": "20:43",
+                        "PPTOI": "2:00",
+                        "SHTOI": "1:33",
+                        "ESTOI": "17:10",
+                        "SHFT": "28",
+                        "G": "0",
+                        "YTDG": "7",
+                        "A": "1",
+                        "S": "0",
+                        "SM": "2",
+                        "SOG": "0",
+                        "FW": "0",
+                        "FL": "0",
+                        "FO%": "0.0",
+                        "GV": "1",
+                        "PN": "0",
+                        "PIM": "0"
+                    }
+                },
+                {
+                    "team": "Edmonton Oilers",
+                    "player": "Connor McDavid",
+                    "player_id": "3895074",
+                    "position": "C",
+                    "statistics": {
+                        "BS": "1",
+                        "HT": "2",
+                        "TK": "1",
+                        "+/-": "-1",
+                        "TOI": "23:14",
+                        "PPTOI": "2:00",
+                        "SHTOI": "1:33",
+                        "ESTOI": "19:41",
+                        "SHFT": "27",
+                        "G": "1",
+                        "YTDG": "14",
+                        "A": "0",
+                        "S": "4",
+                        "SM": "1",
+                        "SOG": "0",
+                        "FW": "11",
+                        "FL": "10",
+                        "FO%": "52.4",
+                        "GV": "1",
+                        "PN": "0",
+                        "PIM": "0"
+                    }
+                },
+                {
+                    "team": "Edmonton Oilers",
+                    "player": "Owen Michaels",
+                    "player_id": "5206840",
+                    "position": "C",
+                    "statistics": {
+                        "BS": "1",
+                        "HT": "2",
+                        "TK": "0",
+                        "+/-": "-1",
+                        "TOI": "8:14",
+                        "PPTOI": "0:00",
+                        "SHTOI": "0:00",
+                        "ESTOI": "8:14",
+                        "SHFT": "14",
+                        "G": "0",
+                        "YTDG": "3",
+                        "A": "0",
+                        "S": "0",
+                        "SM": "0",
+                        "SOG": "0",
+                        "FW": "3",
+                        "FL": "1",
+                        "FO%": "75.0",
+                        "GV": "0",
+                        "PN": "0",
+                        "PIM": "0"
+                    }
+                },
+                {
+                    "team": "Edmonton Oilers",
+                    "player": "Ryan Nugent-Hopkins",
+                    "player_id": "2562624",
+                    "position": "C",
+                    "statistics": {
+                        "BS": "1",
+                        "HT": "1",
+                        "TK": "2",
+                        "+/-": "0",
+                        "TOI": "19:47",
+                        "PPTOI": "2:00",
+                        "SHTOI": "0:14",
+                        "ESTOI": "17:33",
+                        "SHFT": "24",
+                        "G": "0",
+                        "YTDG": "4",
+                        "A": "0",
+                        "S": "1",
+                        "SM": "2",
+                        "SOG": "0",
+                        "FW": "0",
+                        "FL": "0",
+                        "FO%": "0.0",
+                        "GV": "1",
+                        "PN": "0",
+                        "PIM": "0"
+                    }
+                },
+                {
+                    "team": "Edmonton Oilers",
+                    "player": "Vasily Podkolzin",
+                    "player_id": "4565231",
+                    "position": "RW",
+                    "statistics": {
+                        "BS": "0",
+                        "HT": "4",
+                        "TK": "0",
+                        "+/-": "-1",
+                        "TOI": "21:22",
+                        "PPTOI": "0:00",
+                        "SHTOI": "0:12",
+                        "ESTOI": "21:10",
+                        "SHFT": "25",
+                        "G": "1",
+                        "YTDG": "14",
+                        "A": "0",
+                        "S": "2",
+                        "SM": "5",
+                        "SOG": "0",
+                        "FW": "0",
+                        "FL": "1",
+                        "FO%": "0.0",
+                        "GV": "1",
+                        "PN": "0",
+                        "PIM": "0"
+                    }
+                },
+                {
+                    "team": "Edmonton Oilers",
+                    "player": "Evan Bouchard",
+                    "player_id": "4352722",
+                    "position": "D",
+                    "statistics": {
+                        "BS": "1",
+                        "HT": "0",
+                        "TK": "0",
+                        "+/-": "-1",
+                        "TOI": "28:45",
+                        "PPTOI": "2:00",
+                        "SHTOI": "1:20",
+                        "ESTOI": "25:25",
+                        "SHFT": "31",
+                        "G": "0",
+                        "YTDG": "12",
+                        "A": "2",
+                        "S": "3",
+                        "SM": "1",
+                        "SOG": "0",
+                        "FW": "0",
+                        "FL": "0",
+                        "FO%": "0.0",
+                        "GV": "5",
+                        "PN": "0",
+                        "PIM": "0"
+                    }
+                },
+                {
+                    "team": "Edmonton Oilers",
+                    "player": "Mattias Ekholm",
+                    "player_id": "2558631",
+                    "position": "D",
+                    "statistics": {
+                        "BS": "0",
+                        "HT": "0",
+                        "TK": "0",
+                        "+/-": "0",
+                        "TOI": "19:35",
+                        "PPTOI": "0:00",
+                        "SHTOI": "0:50",
+                        "ESTOI": "18:45",
+                        "SHFT": "27",
+                        "G": "0",
+                        "YTDG": "3",
+                        "A": "0",
+                        "S": "1",
+                        "SM": "0",
+                        "SOG": "0",
+                        "FW": "0",
+                        "FL": "0",
+                        "FO%": "0.0",
+                        "GV": "0",
+                        "PN": "1",
+                        "PIM": "4"
+                    }
+                },
+                {
+                    "team": "Edmonton Oilers",
+                    "player": "Shakir Mukhamadullin",
+                    "player_id": "4697403",
+                    "position": "D",
+                    "statistics": {
+                        "BS": "1",
+                        "HT": "0",
+                        "TK": "0",
+                        "+/-": "-2",
+                        "TOI": "14:18",
+                        "PPTOI": "0:00",
+                        "SHTOI": "2:24",
+                        "ESTOI": "11:54",
+                        "SHFT": "18",
+                        "G": "0",
+                        "YTDG": "1",
+                        "A": "0",
+                        "S": "1",
+                        "SM": "1",
+                        "SOG": "0",
+                        "FW": "0",
+                        "FL": "0",
+                        "FO%": "0.0",
+                        "GV": "1",
+                        "PN": "0",
+                        "PIM": "0"
+                    }
+                },
+                {
+                    "team": "Edmonton Oilers",
+                    "player": "Connor Murphy",
+                    "player_id": "2562618",
+                    "position": "D",
+                    "statistics": {
+                        "BS": "1",
+                        "HT": "2",
+                        "TK": "0",
+                        "+/-": "1",
+                        "TOI": "19:16",
+                        "PPTOI": "0:00",
+                        "SHTOI": "2:15",
+                        "ESTOI": "17:01",
+                        "SHFT": "26",
+                        "G": "0",
+                        "YTDG": "0",
+                        "A": "1",
+                        "S": "1",
+                        "SM": "0",
+                        "SOG": "0",
+                        "FW": "0",
+                        "FL": "0",
+                        "FO%": "0.0",
+                        "GV": "2",
+                        "PN": "0",
+                        "PIM": "0"
+                    }
+                },
+                {
+                    "team": "Edmonton Oilers",
+                    "player": "Ryan Shea",
+                    "player_id": "3942033",
+                    "position": "D",
+                    "statistics": {
+                        "BS": "0",
+                        "HT": "1",
+                        "TK": "1",
+                        "+/-": "1",
+                        "TOI": "21:06",
+                        "PPTOI": "0:00",
+                        "SHTOI": "1:56",
+                        "ESTOI": "19:10",
+                        "SHFT": "29",
+                        "G": "0",
+                        "YTDG": "1",
+                        "A": "1",
+                        "S": "2",
+                        "SM": "1",
+                        "SOG": "0",
+                        "FW": "0",
+                        "FL": "0",
+                        "FO%": "0.0",
+                        "GV": "1",
+                        "PN": "0",
+                        "PIM": "0"
+                    }
+                },
+                {
+                    "team": "Edmonton Oilers",
+                    "player": "Jake Walman",
+                    "player_id": "3151136",
+                    "position": "D",
+                    "statistics": {
+                        "BS": "1",
+                        "HT": "1",
+                        "TK": "0",
+                        "+/-": "-1",
+                        "TOI": "15:20",
+                        "PPTOI": "0:00",
+                        "SHTOI": "0:00",
+                        "ESTOI": "15:20",
+                        "SHFT": "24",
+                        "G": "0",
+                        "YTDG": "0",
+                        "A": "0",
+                        "S": "0",
+                        "SM": "2",
+                        "SOG": "0",
+                        "FW": "0",
+                        "FL": "0",
+                        "FO%": "0.0",
+                        "GV": "0",
+                        "PN": "0",
+                        "PIM": "0"
+                    }
+                },
+                {
+                    "team": "Edmonton Oilers",
+                    "player": "Devon Levi",
+                    "player_id": "4894487",
+                    "position": "G",
+                    "statistics": {
+                        "GA": "4",
+                        "SA": "26",
+                        "SOS": "0",
+                        "SOSA": "0",
+                        "SV": "22",
+                        "SV%": ".846",
+                        "ESSV": "19",
+                        "PPSV": "2",
+                        "SHSV": "1",
+                        "TOI": "58:05",
+                        "YTDG": "0",
+                        "PIM": "0"
+                    }
+                }
+            ]
         }
     },
-    "last_updated": "2026-11-24T11:50:30.252646+00:00"
+    "last_updated": "2026-11-25T11:53:24.564315+00:00"
 }
